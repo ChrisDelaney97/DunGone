@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dlancny6423pa"]
+
+[ext_resource type="Script" uid="uid://dnapxus80ul3r" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://dg7rd6fmddsnx" path="res://footstep.wav" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://d2ibfqkjjhhwe" path="res://camera_controller.gd" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://dteiegokqh27j" path="res://arms.tscn" id="2_sweqy"]
+[ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://footstep_audio.gd" id="3_sweqy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=1836785606]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1216438824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="arms_rig" parent="." unique_id=200294358 instance=ExtResource("2_sweqy")]
+top_level = true
+
+[node name="CameraController" type="Node3D" parent="." unique_id=736563461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+top_level = true
+script = ExtResource("2_onrkg")
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=176513045]
+
+[node name="ArmsAnchor" type="Marker3D" parent="CameraController" unique_id=1916482432]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -1.8, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraController" unique_id=658507337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20000005, 0.1)
+light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
+spot_range = 7.0
+
+[node name="CameraControllerAnchor" type="Marker3D" parent="." unique_id=1934447866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="FootstepTimer" type="Timer" parent="." unique_id=725671968]
+wait_time = 0.5
+
+[node name="FootstepAudio" type="AudioStreamPlayer3D" parent="." unique_id=674781962]
+stream = ExtResource("2_hqtel")
+attenuation_model = 3
+panning_strength = 0.0
+script = ExtResource("3_sweqy")
+
+[connection signal="timeout" from="FootstepTimer" to="FootstepAudio" method="_on_footstep_timer_timeout"]
