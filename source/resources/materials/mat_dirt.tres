@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://8dkcl37e2yro"]
+
+[ext_resource type="Texture2D" uid="uid://bwy01j35lgagn" path="res://assets/art/SBS - Tiny Texture Pack 2 - 512x512/512x512/Dirt/Dirt_01-512x512.png" id="1_yorg3"]
+
+
+[resource]
+albedo_texture = ExtResource("1_yorg3")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://f3opjydfxdck"]
+
+[ext_resource type="Script" uid="uid://bk24h7c6nxytq" path="res://source/gameplay/weapons/resources/weapon.gd" id="1_ahn68"]
+
+[resource]
+script = ExtResource("1_ahn68")
+name = "Fists"
+damage = 1
+stamina_cost = 10
+metadata/_custom_type_script = "uid://bk24h7c6nxytq"

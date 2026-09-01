@@ -1,0 +1,14 @@
+Node3D
+AnimationTree
+AnimationPlayer
+VBoxContainer
+TextureProgressBar
+HBoxContainer
+ProgressBar
+Timer
+Node
+ColorRect
+SubViewport
+Sprite3D
+CollisionShape3D
+Area3D

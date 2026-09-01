@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bmfrxiroulyqd"]
+
+[ext_resource type="Texture2D" uid="uid://cu2omsapa4ud4" path="res://assets/art/SBS - Tiny Texture Pack 2 - 512x512/512x512/Elements/Elements_06-512x512.png" id="1_sr51v"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.54901963)
+albedo_texture = ExtResource("1_sr51v")
+emission_enabled = true
+emission_energy_multiplier = 1.89
+emission_texture = ExtResource("1_sr51v")

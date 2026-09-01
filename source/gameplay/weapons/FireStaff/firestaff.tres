@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FireStaff" format=3 uid="uid://r8rlr74ekhww"]
+
+[ext_resource type="PackedScene" uid="uid://nmfe4mxwajji" path="res://source/gameplay/weapons/FireStaff/fire_staff.tscn" id="1_m7uea"]
+[ext_resource type="Script" uid="uid://b1gpx5f1odx7p" path="res://source/gameplay/weapons/FireStaff/firestaff.gd" id="3_8ew1o"]
+
+[resource]
+script = ExtResource("3_8ew1o")
+name = "FireStaff"
+primary_action_damage = 4
+primary_action_mana_cost = 10
+primary_action_cooldown = 2.0
+secondary_action_mana_cost = 20
+secondary_action_cooldown = 10.0
+model = ExtResource("1_m7uea")
+position = Vector3(0.785, -0.925, -0.73)
+metadata/_custom_type_script = "uid://bk24h7c6nxytq"

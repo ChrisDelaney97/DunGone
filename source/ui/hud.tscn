@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cxo53k2wukrjk"]
+
+[ext_resource type="Texture2D" uid="uid://6uo5psc65vvr" path="res://assets/art/circle progress bar/progress-bar-circle.png" id="1_x8fsv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.050980393, 0.050980393, 0.050980393, 0.5372549)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2snw"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37p78"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 1, 0, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ctp"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 1, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[node name="HUD" type="Control" unique_id=727334977]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1569356455]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.39215687)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=955955407]
+layout_mode = 1
+offset_right = 260.0
+offset_bottom = 191.0
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer" unique_id=638441056]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_8sq4i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n2snw")
+step = 0.1
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="VBoxContainer" unique_id=1983555804]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_8sq4i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_37p78")
+step = 0.1
+show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="VBoxContainer" unique_id=621269680]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_8sq4i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_64ctp")
+step = 0.1
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1798170054]
+layout_mode = 2
+
+[node name="PrimaryCooldownBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer" unique_id=1540159129]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+value = 33.0
+fill_mode = 4
+texture_under = ExtResource("1_x8fsv")
+texture_progress = ExtResource("1_x8fsv")
+tint_under = Color(0.39308554, 0.3930855, 0.39308548, 1)
+tint_progress = Color(2.4065375e-07, 0.54629093, 0.17854235, 1)
+
+[node name="SecondaryCooldownBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer" unique_id=1212071818]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+value = 33.0
+fill_mode = 4
+texture_under = ExtResource("1_x8fsv")
+texture_progress = ExtResource("1_x8fsv")
+tint_under = Color(0.39308554, 0.3930855, 0.39308548, 1)
+tint_progress = Color(2.4065375e-07, 0.54629093, 0.17854235, 1)

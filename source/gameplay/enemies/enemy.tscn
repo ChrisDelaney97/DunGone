@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cucohtrquik5a"]
+
+[ext_resource type="Script" uid="uid://drkxj1qcsm2o" path="res://source/gameplay/enemies/enemy.gd" id="1_7k104"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xaro"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
+material = SubResource("StandardMaterial3D_7xaro")
+height = 1.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_7k104"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
+height = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qi2p4"]
+radius = 5.0
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1334081184]
+script = ExtResource("1_7k104")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=64130347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_7k104")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=671144487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44061065, -0.4934169)
+mesh = SubResource("SphereMesh_7k104")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=915951673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_4gyqm")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2029012545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=496712294]
+shape = SubResource("CylinderShape3D_qi2p4")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

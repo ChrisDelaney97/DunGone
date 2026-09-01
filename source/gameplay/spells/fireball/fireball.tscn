@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bdw1ppxlns7ol"]
+
+[ext_resource type="Script" uid="uid://cn3sprn2h42fx" path="res://source/gameplay/spells/fireball/fireball.gd" id="1_sf4mh"]
+[ext_resource type="Material" uid="uid://bmfrxiroulyqd" path="res://source/resources/materials/mat_fire.tres" id="2_olwj8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_sf4mh"]
+material = ExtResource("2_olwj8")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sf4mh"]
+radius = 0.2
+
+[node name="Fireball" type="CharacterBody3D" unique_id=213945125]
+top_level = true
+script = ExtResource("1_sf4mh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=653616888]
+mesh = SubResource("SphereMesh_sf4mh")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2035504273]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1420970309]
+shape = SubResource("SphereShape3D_sf4mh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

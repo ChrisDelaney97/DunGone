@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://doy8ad2rxdvs8"]
+
+[ext_resource type="PackedScene" uid="uid://doq6dyc1dn26v" path="res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Arming_Sword.fbx" id="1_3euvc"]
+
+[sub_resource type="Animation" id="Animation_3euvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arming Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arming Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n77xe"]
+resource_name = "equip"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arming Sword:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arming Sword:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-0.027673306, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="Animation" id="Animation_jnmq3"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arming Sword:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.02, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arming Sword:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.027673306, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="Animation" id="Animation_syhxq"]
+resource_name = "primary"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arming Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.089859754, -0.00040355278, 0.042870454), Vector3(-0.1445928, -0.025869513, -0.35402045), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arming Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.027673306, -0.4450334, 0.33797738), Vector3(-0.027673366, -0.44503334, -0.0040548006), Vector3(-0.027925268, -0.7644542, 1.0663961), Vector3(-0.027673364, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="Animation" id="Animation_xrwt3"]
+resource_name = "secondary"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arming Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.09, 0.29, 0.043), Vector3(-0.215, -0.026, -0.564), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arming Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.027673306, -0.4450334, 0.33797738), Vector3(-0.010471975, -0.84648466, -0.6318092), Vector3(0.15533431, -0.991347, 1.5899949), Vector3(-0.027673364, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnmq3"]
+_data = {
+&"RESET": SubResource("Animation_3euvc"),
+&"equip": SubResource("Animation_n77xe"),
+&"idle": SubResource("Animation_jnmq3"),
+&"primary": SubResource("Animation_syhxq"),
+&"secondary": SubResource("Animation_xrwt3")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3euvc"]
+animation = &"equip"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jnmq3"]
+animation = &"primary"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n77xe"]
+animation = &"secondary"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_syhxq"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xrwt3"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_coqpg"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_iuupr"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_n77xe"]
+nodes/output/position = Vector2(300, 120)
+nodes/idle/node = SubResource("AnimationNodeAnimation_xrwt3")
+nodes/idle/position = Vector2(-340, 120)
+nodes/equip/node = SubResource("AnimationNodeOneShot_syhxq")
+nodes/equip/position = Vector2(-180, 120)
+nodes/primary/node = SubResource("AnimationNodeOneShot_coqpg")
+nodes/primary/position = Vector2(-20, 120)
+nodes/secondary/node = SubResource("AnimationNodeOneShot_iuupr")
+nodes/secondary/position = Vector2(140, 120)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_3euvc")
+"nodes/Animation 2/position" = Vector2(-240, 400)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_jnmq3")
+"nodes/Animation 3/position" = Vector2(-80, 400)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_n77xe")
+"nodes/Animation 4/position" = Vector2(80, 400)
+node_connections = [&"output", 0, &"secondary", &"equip", 0, &"idle", &"equip", 1, &"Animation 2", &"primary", 0, &"equip", &"primary", 1, &"Animation 3", &"secondary", 0, &"primary", &"secondary", 1, &"Animation 4"]
+
+[node name="Sword" unique_id=92487285 instance=ExtResource("1_3euvc")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Arming Sword" parent="." index="0" unique_id=2141159806]
+transform = Transform3D(99.99994, 0, 0, 0, -4.3711357e-06, 99.99995, 0, -99.99992, -4.3711366e-06, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1030834445]
+libraries/ = SubResource("AnimationLibrary_jnmq3")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=265608646]
+tree_root = SubResource("AnimationNodeBlendTree_n77xe")
+anim_player = NodePath("../AnimationPlayer")
+parameters/equip/active = false
+parameters/equip/internal_active = false
+parameters/equip/request = 0
+parameters/primary/active = false
+parameters/primary/internal_active = false
+parameters/primary/request = 0
+parameters/secondary/active = false
+parameters/secondary/internal_active = false
+parameters/secondary/request = 0

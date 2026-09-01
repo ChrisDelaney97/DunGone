@@ -1,0 +1,3 @@
+res://anims/skeleton_attack.anim
+res://source/gameplay/enemies/skeleton.tscn
+res://source/gameplay/enemies/enemy.gd
