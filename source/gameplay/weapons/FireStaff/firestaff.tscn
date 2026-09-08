@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://nmfe4mxwajji"]
 
-[ext_resource type="PackedScene" uid="uid://jc5biioamtkv" path="res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Wizard_Staff.fbx" id="1_pjlv0"]
-[ext_resource type="Animation" uid="uid://d4gtm2n8h8s64" path="res://anims/equip.res" id="2_1gk2h"]
-[ext_resource type="Animation" uid="uid://dq5y3kiinidxd" path="res://anims/idle.res" id="3_tj5qb"]
+[ext_resource type="PackedScene" uid="uid://jc5biioamtkv" path="res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Wizard_Staff.fbx" id="1_3lbyb"]
+[ext_resource type="Script" uid="uid://css728ibtlhik" path="res://source/gameplay/weapons/FireStaff/firestaff.gd" id="2_4oynd"]
+[ext_resource type="Animation" uid="uid://d4gtm2n8h8s64" path="res://anims/equip.res" id="3_n63qh"]
+[ext_resource type="Animation" uid="uid://dq5y3kiinidxd" path="res://anims/idle.res" id="4_wag3l"]
 
 [sub_resource type="Animation" id="Animation_s0hhn"]
 length = 0.001
@@ -57,6 +58,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.1826138, 0, 0), Vector3(-0.42056522, -0.038737927, 0.09464546), Vector3(0, 0, 0)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.56666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_fireball"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_tj5qb"]
 resource_name = "secondary"
@@ -83,6 +98,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.17453294), Vector3(0, 0, -0.17453292), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"damage_buff"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_akx00"]
@@ -116,8 +145,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s0hhn"]
 _data = {
 &"RESET": SubResource("Animation_s0hhn"),
-&"equip": ExtResource("2_1gk2h"),
-&"idle": ExtResource("3_tj5qb"),
+&"equip": ExtResource("3_n63qh"),
+&"idle": ExtResource("4_wag3l"),
 &"primary": SubResource("Animation_1gk2h"),
 &"secondary": SubResource("Animation_tj5qb"),
 &"unequip": SubResource("Animation_akx00")
@@ -142,7 +171,7 @@ animation = &"primary"
 animation = &"secondary"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s0hhn"]
-graph_offset = Vector2(-240, 195.04126)
+graph_offset = Vector2(-326.96936, 53.346344)
 nodes/output/position = Vector2(480, 360)
 nodes/idle/node = SubResource("AnimationNodeAnimation_tj5qb")
 nodes/idle/position = Vector2(-240, 360)
@@ -160,14 +189,15 @@ nodes/equip/node = SubResource("AnimationNodeOneShot_1gk2h")
 nodes/equip/position = Vector2(-80, 360)
 node_connections = [&"output", 0, &"secondary", &"primary", 0, &"equip", &"primary", 1, &"primary_anim", &"secondary", 0, &"primary", &"secondary", 1, &"secondary_anim", &"equip", 0, &"idle", &"equip", 1, &"equip_anim"]
 
-[node name="FireStaff" unique_id=1149425629 instance=ExtResource("1_pjlv0")]
+[node name="FireStaff" unique_id=1149425629 instance=ExtResource("1_3lbyb")]
+script = ExtResource("2_4oynd")
 
-[node name="Wizard Staff" parent="." index="0" unique_id=778638579]
+[node name="Wizard Staff" parent="." index="0" unique_id=320337231]
 transform = Transform3D(99.99999, 0, 0, 0, 100.00001, 7.5497906e-06, 0, -7.5497906e-06, 100.00001, 0, 0, 0)
 
 [node name="CastSpawn" type="Node3D" parent="Wizard Staff" index="0" unique_id=1774063128]
 unique_name_in_owner = true
-transform = Transform3D(-0.010000002, 0, 8.7422725e-10, 0, 0.009999996, 0, -8.742279e-10, 0, -0.009999994, 0, 0.012687177, 0)
+transform = Transform3D(-0.009961949, 0.00036833595, -0.0007898978, 3.6946474e-10, 0.009063074, 0.0042261793, 0.0008715567, 0.004210099, -0.009028584, 0, 0.012506595, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=854004146]
 libraries/ = SubResource("AnimationLibrary_s0hhn")

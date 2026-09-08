@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Sword" format=3 uid="uid://cv242sx64sb4m"]
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://cv242sx64sb4m"]
 
 [ext_resource type="PackedScene" uid="uid://doy8ad2rxdvs8" path="res://source/gameplay/weapons/Sword/sword.tscn" id="1_5hb7k"]
-[ext_resource type="Script" uid="uid://c5uiugvts5ife" path="res://source/gameplay/weapons/Sword/sword.gd" id="1_e1q2m"]
+[ext_resource type="Script" uid="uid://bk24h7c6nxytq" path="res://source/gameplay/weapons/resources/weapon.gd" id="2_5hb7k"]
 
 [resource]
-script = ExtResource("1_e1q2m")
+script = ExtResource("2_5hb7k")
 name = "Sword"
 primary_action_damage = 4
 primary_action_stamina_cost = 10
@@ -13,5 +13,5 @@ secondary_action_damage = 8
 secondary_action_stamina_cost = 30
 secondary_action_cooldown = 5.0
 model = ExtResource("1_5hb7k")
-position = Vector3(0.49236614, -0.40499997, -0.76717615)
+position = Vector3(0.255, -0.135, -0.39)
 metadata/_custom_type_script = "uid://bk24h7c6nxytq"

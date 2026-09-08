@@ -58,3 +58,12 @@ func spend_mana(amount:int):
 
 func _on_stamina_timer_timeout() -> void:
 	stamina_recharging = true
+
+func hit(amount:int):
+	health -= amount
+	health_bar.value = health
+	if health <= 0: death()
+
+func death():
+	print("player has died")
+	queue_free()

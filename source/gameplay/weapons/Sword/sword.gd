@@ -1,10 +1,19 @@
-extends Weapon
-class_name Sword
+extends Node3D
 
-func primary_action(player: Player, anim: AnimationTree, cast_spawn: Node3D):
-	if player.stamina >= primary_action_stamina_cost:
-		anim["parameters/primary/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+var stats: Weapon
+var enemies_hit : Array
+var damage : int
 
-func secondary_action(player: Player, anim: AnimationTree, cast_spawn: Node3D):
-	if player.stamina >= secondary_action_stamina_cost:
-		anim["parameters/secondary/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+func _on_sword_collision_body_entered(body: Node3D) -> void:
+	if body is Enemy and !enemies_hit.has(body):
+		enemies_hit.append(body)
+		body.hit(damage)
+
+func clear_enemies_hit():
+	enemies_hit.clear()
+
+func set_damage_primary():
+	damage = stats.primary_action_damage
+
+func set_damage_secondary():
+	damage = stats.secondary_action_damage

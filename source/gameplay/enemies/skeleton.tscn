@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bpyvu35pxh4gk" path="res://assets/art/Animated-Lowpoly-Skeleton-v1.0/Overaction/Animated-Lowpoly-Skeleton/skeleton.fbx" id="1_crlql"]
 [ext_resource type="Script" uid="uid://drkxj1qcsm2o" path="res://source/gameplay/enemies/enemy.gd" id="2_plk42"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_f6pjm"]
+radius = 0.004
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_crlql"]
 height = 1.8
 
@@ -13,6 +16,7 @@ radius = 5.0
 radius = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_plk42"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plk42"]
 content_margin_left = 2.0
@@ -29,10 +33,10 @@ corner_detail = 6
 [node name="skeleton" unique_id=1827103488 instance=ExtResource("1_crlql")]
 script = ExtResource("2_plk42")
 
-[node name="skeleton-skeleton" parent="." index="0" unique_id=1892628107]
+[node name="skeleton-skeleton" parent="." index="0" unique_id=627769017]
 transform = Transform3D(-149.99998, -1.3113416e-05, -5.7320565e-13, 0, -6.5567083e-06, 149.99998, -1.3113416e-05, 149.99998, 6.5567083e-06, 0, 0, 0)
 
-[node name="Skeleton3D" parent="skeleton-skeleton" index="0" unique_id=1866645898]
+[node name="Skeleton3D" parent="skeleton-skeleton" index="0" unique_id=434930306]
 bones/2/rotation = Quaternion(-9.761111e-08, 0.5704783, 0.82131267, -9.43283e-08)
 bones/2/scale = Vector3(1, 0.9999999, 0.9999999)
 bones/6/position = Vector3(0.0013780934, 0.0013091881, 0.00032155498)
@@ -93,20 +97,35 @@ bones/36/scale = Vector3(1, 1.0000004, 1.0000073)
 bones/42/position = Vector3(0.0015212437, -0.005195348, 0.0073466776)
 bones/44/position = Vector3(-0.0014982754, -0.005221961, 0.0073466776)
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="skeleton-skeleton/Skeleton3D" index="1" unique_id=835140439]
+transform = Transform3D(-0.0038397377, -0.19574049, 0.98064804, -0.89149225, -0.4435888, -0.09203244, 0.45301905, -0.8745937, -0.17279795, -0.0020557242, -0.00032155513, 0.0037781217)
+bone_name = "hand.R"
+bone_idx = 17
+
+[node name="HitArea" type="Area3D" parent="skeleton-skeleton/Skeleton3D/BoneAttachment3D" index="0" unique_id=93475908]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="skeleton-skeleton/Skeleton3D/BoneAttachment3D/HitArea" index="0" unique_id=1826335746]
+shape = SubResource("SphereShape3D_f6pjm")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=1178134615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_crlql")
 
 [node name="DetectionArea" type="Area3D" parent="." index="3" unique_id=2110496541]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" index="0" unique_id=1203298468]
 shape = SubResource("CylinderShape3D_f6pjm")
 
 [node name="AttackArea" type="Area3D" parent="." index="4" unique_id=1177657846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea" index="0" unique_id=453118399]
+visible = false
 shape = SubResource("CylinderShape3D_plk42")
 
 [node name="HealthBarSprite" type="Sprite3D" parent="." index="5" unique_id=1875365627]
@@ -125,6 +144,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_plk42")
 step = 1.0
 value = 100.0
 
+[connection signal="body_entered" from="skeleton-skeleton/Skeleton3D/BoneAttachment3D/HitArea" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
