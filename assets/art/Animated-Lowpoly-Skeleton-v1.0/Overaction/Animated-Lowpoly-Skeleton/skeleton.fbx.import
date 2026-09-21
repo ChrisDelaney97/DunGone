@@ -42,7 +42,7 @@ _subresources={
 "skeleton-skeleton|attack": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://anims/skeleton_attack.anim",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://fdpvgud7n7po",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
@@ -6210,7 +6210,7 @@ _subresources={
 "skeleton-skeleton|spawn": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://anims/skeleton_spawn.anim",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://bctyj6ft25r1v",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,

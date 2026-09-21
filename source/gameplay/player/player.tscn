@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="7_s8fx6"]
 [ext_resource type="Script" uid="uid://duoequxihr1ab" path="res://source/gameplay/weapons/resources/weapon_controller.gd" id="7_uv317"]
 [ext_resource type="Resource" uid="uid://r8rlr74ekhww" path="res://source/gameplay/weapons/FireStaff/firestaff.tres" id="8_s8fx6"]
+[ext_resource type="PackedScene" uid="uid://bpu351pw0myyq" path="res://source/gameplay/inventory/inventory_controller.tscn" id="9_2gcdm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 height = 1.8
@@ -28,8 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 top_level = true
 script = ExtResource("2_onrkg")
 
-[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=176513045]
-
 [node name="ArmsAnchor" type="Marker3D" parent="CameraController" unique_id=1916482432]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -1.8, 0)
 
@@ -38,6 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20000005, 0.1)
 light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
 spot_range = 7.0
 spot_angle = 52.89
+
+[node name="HeadBob" type="Node3D" parent="CameraController" unique_id=1905026899]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/HeadBob" unique_id=176513045]
 
 [node name="CameraControllerAnchor" type="Marker3D" parent="." unique_id=1934447866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -75,6 +79,9 @@ one_shot = true
 
 [node name="SecondaryCooldown" type="Timer" parent="Components/WeaponController" unique_id=1541902217]
 one_shot = true
+
+[node name="InventoryController" parent="Components" unique_id=1885242508 instance=ExtResource("9_2gcdm")]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="FootstepTimer" to="FootstepAudio" method="_on_footstep_timer_timeout"]
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]

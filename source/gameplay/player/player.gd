@@ -65,5 +65,4 @@ func hit(amount:int):
 	if health <= 0: death()
 
 func death():
-	print("player has died")
 	queue_free()
