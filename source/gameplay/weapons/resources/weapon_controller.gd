@@ -21,12 +21,12 @@ var current_weapon: Weapon
 
 func _ready() -> void:
 	if primary_weapon: current_weapon = primary_weapon
-	if current_weapon: spawn_weapon_model()
+	# # # # # # # # if current_weapon: spawn_weapon_model()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_action") and primary_cooldown_ready: primary_action()
 	if event.is_action_pressed("secondary_action") and secondary_cooldown_ready: secondary_action()
-	if event.is_action_pressed("swap_weapon") and primary_weapon != null and secondary_weapon != null: swap_weapon()
+	# # # # # # # if event.is_action_pressed("swap_weapon") and primary_weapon != null and secondary_weapon != null: swap_weapon()
 
 func _process(delta: float) -> void:
 	if !primary_cooldown.is_stopped():

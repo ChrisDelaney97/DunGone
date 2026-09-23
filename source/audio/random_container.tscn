@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://t4kdeel5ewd0"]
+
+[ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/audio/random_container.gd" id="1_gpomc"]
+
+[node name="RandomContainer" type="AudioStreamPlayer3D" unique_id=125268194]
+script = ExtResource("1_gpomc")

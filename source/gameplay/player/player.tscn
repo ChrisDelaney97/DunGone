@@ -1,62 +1,77 @@
 [gd_scene format=3 uid="uid://dlancny6423pa"]
 
 [ext_resource type="Script" uid="uid://dnapxus80ul3r" path="res://source/gameplay/player/player.gd" id="1_4flbx"]
-[ext_resource type="AudioStream" uid="uid://dg7rd6fmddsnx" path="res://assets/audio/footstep.wav" id="2_hqtel"]
-[ext_resource type="Script" uid="uid://d2ibfqkjjhhwe" path="res://source/gameplay/camera/camera_controller.gd" id="2_onrkg"]
-[ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/gameplay/player/footstep_audio.gd" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/audio/random_container.gd" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/hud.tscn" id="6_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://bfemx2kp5sj5h" path="res://source/gameplay/interactions/interaction_controller.tscn" id="7_fqv3n"]
 [ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="7_s8fx6"]
 [ext_resource type="Script" uid="uid://duoequxihr1ab" path="res://source/gameplay/weapons/resources/weapon_controller.gd" id="7_uv317"]
+[ext_resource type="Script" uid="uid://b35x8dsr8vfhf" path="res://source/audio/player_audio.gd" id="8_6ie23"]
 [ext_resource type="Resource" uid="uid://r8rlr74ekhww" path="res://source/gameplay/weapons/FireStaff/firestaff.tres" id="8_s8fx6"]
 [ext_resource type="PackedScene" uid="uid://bpu351pw0myyq" path="res://source/gameplay/inventory/inventory_controller.tscn" id="9_2gcdm"]
+[ext_resource type="AudioStream" uid="uid://cyfeqcnat276i" path="res://assets/audio/footsteps/Footstep_01.wav" id="9_lkhq1"]
+[ext_resource type="PackedScene" uid="uid://t4kdeel5ewd0" path="res://source/audio/random_container.tscn" id="10_6ie23"]
+[ext_resource type="AudioStream" uid="uid://bdw3r2c2eebtb" path="res://assets/audio/footsteps/Footstep_02.wav" id="10_ghpx7"]
+[ext_resource type="AudioStream" uid="uid://dighj0fx3vew7" path="res://assets/audio/footsteps/Footstep_03.wav" id="11_mvhmi"]
+[ext_resource type="AudioStream" uid="uid://7t56t13kxupa" path="res://assets/audio/footsteps/Footstep_04.wav" id="12_j2eqb"]
+[ext_resource type="AudioStream" uid="uid://bhxuvg768wb6v" path="res://assets/audio/footsteps/Footstep_05.wav" id="13_ld57f"]
+[ext_resource type="AudioStream" uid="uid://dgdmrps8ss2uu" path="res://assets/audio/footsteps/Footstep_06.wav" id="14_i5a1x"]
+[ext_resource type="AudioStream" uid="uid://chtbdjnlmluw2" path="res://assets/audio/footsteps/Footstep_07.wav" id="15_fqv3n"]
+[ext_resource type="AudioStream" uid="uid://bmcvto5sgmqa" path="res://assets/audio/footsteps/Footstep_08.wav" id="16_ssb23"]
+[ext_resource type="AudioStream" uid="uid://3yhfa1oq1paf" path="res://assets/audio/footsteps/Footstep_09.wav" id="17_mllds"]
+[ext_resource type="AudioStream" uid="uid://d3mn3fjraqyuj" path="res://assets/audio/footsteps/Footstep_10.wav" id="18_ghl0f"]
+[ext_resource type="AudioStream" uid="uid://d3xw2huf7psml" path="res://assets/audio/footsteps/Jump_01.wav" id="20_i5a1x"]
+[ext_resource type="AudioStream" uid="uid://da0hvuqyiylwd" path="res://assets/audio/footsteps/Jump_02.wav" id="21_fqv3n"]
+[ext_resource type="AudioStream" uid="uid://buscbaralghs7" path="res://assets/audio/footsteps/Land_01.wav" id="22_ssb23"]
+[ext_resource type="AudioStream" uid="uid://ca558688a6gmq" path="res://assets/audio/footsteps/Land_02.wav" id="23_mllds"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
-height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gcdm"]
+radius = 0.4975
+height = 0.995
 
 [node name="Player" type="CharacterBody3D" unique_id=1836785606]
 script = ExtResource("1_4flbx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1216438824]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+[node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=1216438824]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_onrkg")
 
-[node name="CastSpawn" type="Node3D" parent="." unique_id=1118655267]
+[node name="CrouchingCollision" type="CollisionShape3D" parent="." unique_id=1653269037]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.05143386, 1.6449437, 0.51605475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49731445, 0)
+shape = SubResource("CapsuleShape3D_2gcdm")
 
-[node name="CameraController" type="Node3D" parent="." unique_id=736563461]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-top_level = true
-script = ExtResource("2_onrkg")
+[node name="Head" type="Node3D" parent="." unique_id=736563461]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
-[node name="ArmsAnchor" type="Marker3D" parent="CameraController" unique_id=1916482432]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -1.8, 0)
+[node name="Eyes" type="Node3D" parent="Head" unique_id=2020348412]
+unique_name_in_owner = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CameraController" unique_id=658507337]
+[node name="Camera" type="Camera3D" parent="Head/Eyes" unique_id=176513045]
+unique_name_in_owner = true
+fov = 90.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Eyes/Camera" unique_id=658507337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20000005, 0.1)
 light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
 spot_range = 7.0
 spot_angle = 52.89
 
-[node name="HeadBob" type="Node3D" parent="CameraController" unique_id=1905026899]
+[node name="InteractionRaycast" type="RayCast3D" parent="Head/Eyes/Camera" unique_id=473589688]
 unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
 
-[node name="Camera3D" type="Camera3D" parent="CameraController/HeadBob" unique_id=176513045]
+[node name="Hand" type="Marker3D" parent="Head/Eyes/Camera" unique_id=824809689]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="CameraControllerAnchor" type="Marker3D" parent="." unique_id=1934447866]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
-
-[node name="FootstepTimer" type="Timer" parent="." unique_id=725671968]
-wait_time = 0.5
-
-[node name="FootstepAudio" type="AudioStreamPlayer3D" parent="." unique_id=674781962]
-stream = ExtResource("2_hqtel")
-attenuation_model = 3
-panning_strength = 0.0
-script = ExtResource("3_sweqy")
-volume_min = 0.91
-pitch_min = 0.97
-pitch_max = 1.03
+[node name="CastSpawn" type="Node3D" parent="." unique_id=1118655267]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.05143386, 1.6449437, 0.51605475)
 
 [node name="HUD" parent="." unique_id=727334977 instance=ExtResource("6_2hs0m")]
 unique_name_in_owner = true
@@ -71,7 +86,7 @@ script = ExtResource("7_uv317")
 player = NodePath("../..")
 primary_weapon = ExtResource("7_s8fx6")
 secondary_weapon = ExtResource("8_s8fx6")
-weapon_model_parent = NodePath("../../CameraController")
+weapon_model_parent = NodePath("../../Head")
 metadata/_custom_type_script = "uid://duoequxihr1ab"
 
 [node name="PrimaryCooldown" type="Timer" parent="Components/WeaponController" unique_id=844200843]
@@ -83,7 +98,45 @@ one_shot = true
 [node name="InventoryController" parent="Components" unique_id=1885242508 instance=ExtResource("9_2gcdm")]
 unique_name_in_owner = true
 
-[connection signal="timeout" from="FootstepTimer" to="FootstepAudio" method="_on_footstep_timer_timeout"]
+[node name="InteractionController" parent="Components" unique_id=584641459 instance=ExtResource("7_fqv3n")]
+unique_name_in_owner = true
+
+[node name="StandUpCheck" type="RayCast3D" parent="." unique_id=2125793059]
+unique_name_in_owner = true
+target_position = Vector3(0, 2, 0)
+
+[node name="AudioManager" type="Node3D" parent="." unique_id=807066735]
+unique_name_in_owner = true
+script = ExtResource("8_6ie23")
+
+[node name="Footstep" parent="AudioManager" unique_id=125268194 instance=ExtResource("10_6ie23")]
+panning_strength = 0.2
+volume_min = 0.5
+volume_max = 0.7
+pitch_min = 0.95
+pitch_max = 1.05
+audio_streams = Array[AudioStream]([ExtResource("9_lkhq1"), ExtResource("10_ghpx7"), ExtResource("11_mvhmi"), ExtResource("12_j2eqb"), ExtResource("13_ld57f"), ExtResource("14_i5a1x"), ExtResource("15_fqv3n"), ExtResource("16_ssb23"), ExtResource("17_mllds"), ExtResource("18_ghl0f")])
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1383491902]
+panning_strength = 0.2
+script = ExtResource("3_sweqy")
+volume_min = 0.5
+volume_max = 0.6
+pitch_min = 0.95
+pitch_max = 1.05
+audio_streams = Array[AudioStream]([ExtResource("20_i5a1x"), ExtResource("21_fqv3n")])
+metadata/_custom_type_script = "uid://c5ajbgim51orn"
+
+[node name="Land" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1219786011]
+panning_strength = 0.2
+script = ExtResource("3_sweqy")
+volume_min = 0.2
+volume_max = 0.3
+pitch_min = 0.95
+pitch_max = 1.05
+audio_streams = Array[AudioStream]([ExtResource("22_ssb23"), ExtResource("23_mllds")])
+metadata/_custom_type_script = "uid://c5ajbgim51orn"
+
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="Components/WeaponController/PrimaryCooldown" to="Components/WeaponController" method="_on_primary_cooldown_timeout"]
 [connection signal="timeout" from="Components/WeaponController/SecondaryCooldown" to="Components/WeaponController" method="_on_secondary_cooldown_timeout"]

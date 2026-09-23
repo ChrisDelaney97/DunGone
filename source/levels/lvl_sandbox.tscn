@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://b77emnmgweevx"]
+
+[ext_resource type="Texture2D" uid="uid://cr1xgnswe84sx" path="res://assets/art/kenney_prototype-textures/Dark/texture_13.png" id="1_b8lua"]
+[ext_resource type="PackedScene" uid="uid://dlancny6423pa" path="res://source/gameplay/player/player.tscn" id="2_nbs6p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b8lua"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_nbs6p"]
+sky_material = SubResource("ProceduralSkyMaterial_b8lua")
+
+[sub_resource type="Environment" id="Environment_7wp20"]
+background_mode = 2
+sky = SubResource("Sky_nbs6p")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wp20"]
+albedo_texture = ExtResource("1_b8lua")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rgqm"]
+albedo_texture = ExtResource("1_b8lua")
+uv1_triplanar = true
+
+[node name="lvl_sandbox" type="Node3D" unique_id=1148681334]
+
+[node name="Player" parent="." unique_id=1836785606 instance=ExtResource("2_nbs6p")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2104535523]
+environment = SubResource("Environment_7wp20")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=521957461]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1413359879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(30, 1, 30)
+material = SubResource("StandardMaterial3D_7wp20")
+
+[node name="Wall" type="CSGBox3D" parent="." unique_id=763183749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+use_collision = true
+size = Vector3(20, 4, 1)
+material = SubResource("StandardMaterial3D_8rgqm")
+
+[node name="CrouchWall" type="CSGBox3D" parent="." unique_id=454121347]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 2, -0.5)
+use_collision = true
+size = Vector3(10, 2, 1)
+material = SubResource("StandardMaterial3D_8rgqm")

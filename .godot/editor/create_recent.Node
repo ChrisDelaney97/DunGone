@@ -1,3 +1,9 @@
+Marker3D
+RayCast3D
+Node
+AudioStreamPlayer3D
+Node3D
+CSGBox3D
 CollisionShape3D
 MeshInstance3D
 StaticBody3D
@@ -7,8 +13,3 @@ GridContainer
 MarginContainer
 Panel
 Control
-CanvasLayer
-CanvasGroup
-Node
-Node3D
-SubViewport

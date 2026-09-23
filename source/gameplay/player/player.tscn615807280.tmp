@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dlancny6423pa"]
+
+[ext_resource type="Script" uid="uid://dnapxus80ul3r" path="res://source/gameplay/player/player.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://dg7rd6fmddsnx" path="res://assets/audio/footstep.wav" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://d2ibfqkjjhhwe" path="res://source/gameplay/camera/camera_controller.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/gameplay/player/footstep_audio.gd" id="3_sweqy"]
+[ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/hud.tscn" id="6_2hs0m"]
+[ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="7_s8fx6"]
+[ext_resource type="Script" uid="uid://duoequxihr1ab" path="res://source/gameplay/weapons/resources/weapon_controller.gd" id="7_uv317"]
+[ext_resource type="Resource" uid="uid://r8rlr74ekhww" path="res://source/gameplay/weapons/FireStaff/firestaff.tres" id="8_s8fx6"]
+[ext_resource type="PackedScene" uid="uid://bpu351pw0myyq" path="res://source/gameplay/inventory/inventory_controller.tscn" id="9_2gcdm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=1836785606]
+script = ExtResource("1_4flbx")
+
+[node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=1216438824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="CrouchingCollision" type="CollisionShape3D" parent="." unique_id=1653269037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="CastSpawn" type="Node3D" parent="." unique_id=1118655267]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.05143386, 1.6449437, 0.51605475)
+
+[node name="CameraController" type="Node3D" parent="." unique_id=736563461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+top_level = true
+script = ExtResource("2_onrkg")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraController" unique_id=658507337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20000005, 0.1)
+light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
+spot_range = 7.0
+spot_angle = 52.89
+
+[node name="HeadBob" type="Node3D" parent="CameraController" unique_id=1905026899]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=176513045]
+
+[node name="CameraControllerAnchor" type="Marker3D" parent="." unique_id=1934447866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="FootstepTimer" type="Timer" parent="." unique_id=725671968]
+wait_time = 0.5
+
+[node name="FootstepAudio" type="AudioStreamPlayer3D" parent="." unique_id=674781962]
+stream = ExtResource("2_hqtel")
+attenuation_model = 3
+panning_strength = 0.0
+script = ExtResource("3_sweqy")
+volume_min = 0.91
+pitch_min = 0.97
+pitch_max = 1.03
+
+[node name="HUD" parent="." unique_id=727334977 instance=ExtResource("6_2hs0m")]
+unique_name_in_owner = true
+
+[node name="StaminaTimer" type="Timer" parent="." unique_id=1913324125]
+wait_time = 1.5
+
+[node name="Components" type="Node" parent="." unique_id=1750627188]
+
+[node name="WeaponController" type="Node" parent="Components" unique_id=856481468 node_paths=PackedStringArray("player", "weapon_model_parent")]
+script = ExtResource("7_uv317")
+player = NodePath("../..")
+primary_weapon = ExtResource("7_s8fx6")
+secondary_weapon = ExtResource("8_s8fx6")
+weapon_model_parent = NodePath("../../CameraController")
+metadata/_custom_type_script = "uid://duoequxihr1ab"
+
+[node name="PrimaryCooldown" type="Timer" parent="Components/WeaponController" unique_id=844200843]
+one_shot = true
+
+[node name="SecondaryCooldown" type="Timer" parent="Components/WeaponController" unique_id=1541902217]
+one_shot = true
+
+[node name="InventoryController" parent="Components" unique_id=1885242508 instance=ExtResource("9_2gcdm")]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="FootstepTimer" to="FootstepAudio" method="_on_footstep_timer_timeout"]
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
+[connection signal="timeout" from="Components/WeaponController/PrimaryCooldown" to="Components/WeaponController" method="_on_primary_cooldown_timeout"]
+[connection signal="timeout" from="Components/WeaponController/SecondaryCooldown" to="Components/WeaponController" method="_on_secondary_cooldown_timeout"]

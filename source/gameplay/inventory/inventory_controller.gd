@@ -13,4 +13,3 @@ func _ready() -> void:
 		var slot = inventory_slot_prefab.instantiate() as InventorySlot
 		inventory_grid.add_child(slot)
 		
-new folder
