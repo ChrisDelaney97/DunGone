@@ -2,6 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://6uo5psc65vvr" path="res://assets/art/circle progress bar/progress-bar-circle.png" id="1_x8fsv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcryv"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.39215687)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
 content_margin_left = 2.0
 content_margin_top = 2.0
@@ -58,6 +70,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel" type="Panel" parent="." unique_id=881939378]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcryv")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1569356455]
 layout_mode = 1
 anchors_preset = 8
@@ -65,12 +94,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 2.0
-offset_bottom = 2.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(1, 1, 1, 0.39215687)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=955955407]

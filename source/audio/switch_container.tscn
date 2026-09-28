@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" uid="uid://mkhirwd2cb0q" path="res://source/audio/switch_container.gd" id="1_k1afs"]
 
-[node name="SwitchContainer" type="Node" unique_id=126404129 node_paths=PackedStringArray("sound_array")]
+[node name="SwitchContainer" type="Node3D" unique_id=146651809]
 script = ExtResource("1_k1afs")
-sound_array = [null]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://shsnimrfcjxy"]
+
+[ext_resource type="Script" uid="uid://bk24h7c6nxytq" path="res://source/gameplay/weapons/resources/weapon.gd" id="1_ub2k1"]
+[ext_resource type="PackedScene" uid="uid://cgd688lteemq" path="res://source/gameplay/weapons/Dagger/dagger.tscn" id="1_x6hlc"]
+
+[resource]
+script = ExtResource("1_ub2k1")
+name = "Dagger"
+primary_action_damage = 2
+primary_action_stamina_cost = 5
+primary_action_cooldown = 1.0
+model = ExtResource("1_x6hlc")
+position = Vector3(0.7, -0.6, -0.6)
+metadata/_custom_type_script = "uid://bk24h7c6nxytq"

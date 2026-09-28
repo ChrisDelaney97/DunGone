@@ -122,6 +122,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	input_dir = Input.get_vector("left", "right", "forward", "back")
+	%GroundCheck.position = Vector3(input_dir.x, 0, input_dir.y) # Move ground surface check in front of where player is moving
 	direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
 	if direction and !inventory_open:
 		velocity.x = direction.x * current_speed

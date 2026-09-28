@@ -8,7 +8,7 @@
 albedo_texture = ExtResource("1_825kn")
 normal_enabled = true
 normal_texture = ExtResource("2_1fi4m")
-uv1_scale = Vector3(150, 150, 150)
+uv1_scale = Vector3(5, 5, 5)
 texture_filter = 0
 script = ExtResource("1_2ydgw")
 metadata/_custom_type_script = "uid://voi35tkdg2bk"

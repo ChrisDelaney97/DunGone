@@ -1,5 +1,5 @@
 @icon("uid://t3tt8c3qqs6c")
-extends Node
+extends Node3D
 class_name SwitchContainer
 
 @export var default_condition: String

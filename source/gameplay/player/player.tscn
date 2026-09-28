@@ -4,11 +4,11 @@
 [ext_resource type="Shader" uid="uid://ba86g5rhsset8" path="res://source/shaders/shaderoverlay.gdshader" id="2_ssb23"]
 [ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/audio/random_container.gd" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/hud.tscn" id="6_2hs0m"]
+[ext_resource type="Resource" uid="uid://shsnimrfcjxy" path="res://source/gameplay/weapons/Dagger/dagger.tres" id="6_xfowu"]
 [ext_resource type="PackedScene" uid="uid://bfemx2kp5sj5h" path="res://source/gameplay/interactions/interaction_controller.tscn" id="7_fqv3n"]
 [ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="7_s8fx6"]
 [ext_resource type="Script" uid="uid://duoequxihr1ab" path="res://source/gameplay/weapons/resources/weapon_controller.gd" id="7_uv317"]
 [ext_resource type="Script" uid="uid://b35x8dsr8vfhf" path="res://source/audio/player_audio.gd" id="8_6ie23"]
-[ext_resource type="Resource" uid="uid://r8rlr74ekhww" path="res://source/gameplay/weapons/FireStaff/firestaff.tres" id="8_s8fx6"]
 [ext_resource type="PackedScene" uid="uid://bpu351pw0myyq" path="res://source/gameplay/inventory/inventory_controller.tscn" id="9_2gcdm"]
 [ext_resource type="AudioStream" uid="uid://cyfeqcnat276i" path="res://assets/audio/footsteps/concrete/Footstep_01.wav" id="9_lkhq1"]
 [ext_resource type="PackedScene" uid="uid://t4kdeel5ewd0" path="res://source/audio/random_container.tscn" id="10_6ie23"]
@@ -36,6 +36,19 @@
 [ext_resource type="AudioStream" uid="uid://d28qgfy5mgrv1" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_10.wav" id="34_w3k26"]
 [ext_resource type="AudioStream" uid="uid://dxlaibwpe25re" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_11.wav" id="35_a2cq0"]
 [ext_resource type="AudioStream" uid="uid://bnsg186jtsio3" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_12.wav" id="36_3woax"]
+[ext_resource type="AudioStream" uid="uid://dvif43r2wnjx0" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_01.wav" id="37_w3k26"]
+[ext_resource type="AudioStream" uid="uid://c74dybyrohwql" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_02.wav" id="38_a2cq0"]
+[ext_resource type="AudioStream" uid="uid://bnp448s8687ge" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_03.wav" id="39_3woax"]
+[ext_resource type="AudioStream" uid="uid://ddqlva2fuqkt2" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_04.wav" id="40_iaiyt"]
+[ext_resource type="AudioStream" uid="uid://cxn6oud11s1dg" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_05.wav" id="41_51try"]
+[ext_resource type="AudioStream" uid="uid://bidnh5y50oag3" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_06.wav" id="42_i1ra4"]
+[ext_resource type="AudioStream" uid="uid://bp50nx7xp18f5" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_07.wav" id="43_d6fit"]
+[ext_resource type="AudioStream" uid="uid://1iucsxxvw4wo" path="res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_08.wav" id="44_ulqwp"]
+[ext_resource type="AudioStream" uid="uid://bjjjbjcgaw31u" path="res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 1.wav" id="45_i1ra4"]
+[ext_resource type="AudioStream" uid="uid://bmmchs6l8wwqg" path="res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 2.wav" id="46_d6fit"]
+[ext_resource type="AudioStream" uid="uid://bktbksqtkkl3v" path="res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 3.wav" id="47_ulqwp"]
+[ext_resource type="AudioStream" uid="uid://dnggx1wgiuq76" path="res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 5.wav" id="48_hrqcm"]
+[ext_resource type="AudioStream" uid="uid://rhectrvygk6c" path="res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661.wav" id="49_nxwb4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -82,6 +95,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 fov = 90.0
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Head/Eyes/Camera" unique_id=138925878]
+current = true
+
 [node name="ShaderOverlay" type="MeshInstance3D" parent="Head/Eyes/Camera" unique_id=888055443]
 unique_name_in_owner = true
 visible = false
@@ -115,7 +131,7 @@ wait_time = 1.2999999999999998
 script = ExtResource("7_uv317")
 player = NodePath("../..")
 primary_weapon = ExtResource("7_s8fx6")
-secondary_weapon = ExtResource("8_s8fx6")
+secondary_weapon = ExtResource("6_xfowu")
 weapon_model_parent = NodePath("../../Head")
 metadata/_custom_type_script = "uid://duoequxihr1ab"
 
@@ -137,14 +153,14 @@ target_position = Vector3(0, 2, 0)
 
 [node name="GroundCheck" type="RayCast3D" parent="." unique_id=1826895287]
 unique_name_in_owner = true
+target_position = Vector3(0, -2, 0)
 
-[node name="AudioManager" type="Node3D" parent="." unique_id=807066735]
+[node name="AudioManager" type="Node3D" parent="." unique_id=1631276098]
 unique_name_in_owner = true
 script = ExtResource("8_6ie23")
 
 [node name="Jump" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1383491902]
-attenuation_model = 3
-panning_strength = 0.2
+panning_strength = 0.0
 bus = &"SFX"
 script = ExtResource("3_sweqy")
 volume_min = 0.6
@@ -155,8 +171,7 @@ audio_streams = Array[AudioStream]([ExtResource("20_i5a1x"), ExtResource("21_fqv
 metadata/_custom_type_script = "uid://c5ajbgim51orn"
 
 [node name="Land" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1219786011]
-attenuation_model = 3
-panning_strength = 0.2
+panning_strength = 0.0
 bus = &"SFX"
 script = ExtResource("3_sweqy")
 volume_min = 0.55
@@ -169,32 +184,48 @@ metadata/_custom_type_script = "uid://c5ajbgim51orn"
 [node name="FootstepSwitchContainer" parent="AudioManager" unique_id=71178720 node_paths=PackedStringArray("sounds") instance=ExtResource("25_mllds")]
 unique_name_in_owner = true
 default_condition = "Concrete"
-conditions = Array[String](["Concrete", "Dirt"])
-sounds = [NodePath("FootstepDirt"), NodePath("FootstepConcrete")]
+conditions = Array[String](["Concrete", "Dirt", "Grass", "Water"])
+sounds = [NodePath("FootstepDirt"), NodePath("FootstepConcrete"), NodePath("FootstepGrass"), NodePath("FootstepWater")]
 
 [node name="FootstepDirt" parent="AudioManager/FootstepSwitchContainer" unique_id=734830554 instance=ExtResource("10_6ie23")]
-attenuation_model = 3
-max_polyphony = 2
-panning_strength = 0.2
+panning_strength = 0.0
 bus = &"SFX"
-volume_min = 0.32
-volume_max = 0.46
+master_volume = 0.45
+volume_min = 0.27
+volume_max = 0.34
 pitch_min = 0.95
 pitch_max = 1.05
 condition = "Dirt"
 audio_streams = Array[AudioStream]([ExtResource("26_xfowu"), ExtResource("27_ffidw"), ExtResource("28_plau3"), ExtResource("29_hgbot"), ExtResource("30_06mad"), ExtResource("31_5ttu3"), ExtResource("32_myrfx"), ExtResource("33_8ka1y"), ExtResource("34_w3k26"), ExtResource("35_a2cq0"), ExtResource("36_3woax")])
 
 [node name="FootstepConcrete" parent="AudioManager/FootstepSwitchContainer" unique_id=125268194 instance=ExtResource("10_6ie23")]
-attenuation_model = 3
-max_polyphony = 2
-panning_strength = 0.2
+panning_strength = 0.0
 bus = &"SFX"
-volume_min = 0.59
-volume_max = 0.85
+volume_min = 0.21
+volume_max = 0.26
 pitch_min = 0.95
 pitch_max = 1.05
 condition = "Concrete"
 audio_streams = Array[AudioStream]([ExtResource("9_lkhq1"), ExtResource("12_ssb23"), ExtResource("14_ghl0f"), ExtResource("15_4wmng"), ExtResource("16_cqrl7"), ExtResource("17_veync"), ExtResource("18_n8hng"), ExtResource("19_sdyer"), ExtResource("20_ntq5h")])
+
+[node name="FootstepGrass" parent="AudioManager/FootstepSwitchContainer" unique_id=734564991 instance=ExtResource("10_6ie23")]
+panning_strength = 0.0
+bus = &"SFX"
+volume_min = 0.94
+pitch_min = 0.95
+pitch_max = 1.05
+condition = "Grass"
+audio_streams = Array[AudioStream]([ExtResource("37_w3k26"), ExtResource("38_a2cq0"), ExtResource("39_3woax"), ExtResource("40_iaiyt"), ExtResource("41_51try"), ExtResource("42_i1ra4"), ExtResource("43_d6fit"), ExtResource("44_ulqwp")])
+
+[node name="FootstepWater" parent="AudioManager/FootstepSwitchContainer" unique_id=1592590580 instance=ExtResource("10_6ie23")]
+panning_strength = 0.0
+bus = &"SFX"
+master_volume = 0.8
+volume_min = 0.94
+pitch_min = 0.95
+pitch_max = 1.05
+condition = "Water"
+audio_streams = Array[AudioStream]([ExtResource("45_i1ra4"), ExtResource("46_d6fit"), ExtResource("47_ulqwp"), ExtResource("48_hrqcm"), ExtResource("49_nxwb4")])
 
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="Components/WeaponController/PrimaryCooldown" to="Components/WeaponController" method="_on_primary_cooldown_timeout"]

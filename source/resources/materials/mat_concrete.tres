@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://csv33o63w7wlk" path="res://assets/art/ground_n.png" id="2_y332u"]
 
 [resource]
-albedo_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+albedo_color = Color(0.4189017, 0.4189017, 0.4189017, 1)
 albedo_texture = ExtResource("1_obd5f")
 normal_enabled = true
 normal_texture = ExtResource("2_y332u")
-uv1_scale = Vector3(150, 150, 150)
+uv1_scale = Vector3(5, 5, 5)
 texture_filter = 0
 script = ExtResource("1_etk57")
 surface_type = 1

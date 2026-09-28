@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("equip1") and primary_weapon and !player.inventory_open: equip_weapon_1()
 	if event.is_action_pressed("equip2") and secondary_weapon and !player.inventory_open: equip_weapon_2()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !primary_cooldown.is_stopped():
 		primary_cooldown_bar.value = ((primary_cooldown.wait_time-primary_cooldown.time_left)/primary_cooldown.wait_time) * 100
 	if !secondary_cooldown.is_stopped():

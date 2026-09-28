@@ -1,7 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1790596629
-export_presets.cfg::TextFile::-1::1790589501::0::1::::<><><>0<>0<><>::
-icon.svg::CompressedTexture2D::1692390047774854689::1787235858::1787235905::1::::<><><>0<>0<>7f2dff95e9652e3dff7d0f91d2dbb792<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1790609132
+export_presets.cfg::TextFile::-1::1790603087::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::1692390047774854689::1787235858::1790609132::1::::<><><>0<>0<>96e2f8881796034884966aa70a7a5c5e<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
 ::res://addons/::1790256508
 ::res://addons/inspector_pin/::1790256508
 plugin.cfg::TextFile::-1::1790256508::0::1::::<><><>0<>0<><>::
@@ -16,17 +16,21 @@ push_L.res::Animation::22736946981544567::1788966904::0::1::::<><><>0<>0<><>::
 skeleton_attack.anim::Animation::358085954231647700::1789993756::0::1::::<><><>0<>0<><>::
 skeleton_spawn.anim::Animation::2567496465116271117::1788967139::0::1::::<><><>0<>0<><>::
 ::res://assets/::1790595763
-::res://assets/art/::1790595763
+::res://assets/art/::1790610874
 ground.png::CompressedTexture2D::8452479796704431438::1790341604::1790341607::1::::<><><>0<>0<>3e8a668d4328db906c5e7d13c4a75448<>res://.godot/imported/ground.png-22303ba8c49761f4883e125eb68247ac.s3tc.ctex::
 ground_n.png::CompressedTexture2D::6081343348251552120::1790341604::1790341887::1::::<><><>0<>0<>7b444a2d58c5115d1fcf24bbf561d202<>res://.godot/imported/ground_n.png-53ce9439e884331fec28a98e0da12aba.s3tc.ctex::
+smoke_01.png::CompressedTexture2D::8343689478492855283::1790610874::1790610876::1::::<><><>0<>0<>80443013f9b5725db0249d9206336a2a<>res://.godot/imported/smoke_01.png-984e9e457ea9e51e094b72fa326206ce.s3tc.ctex::
 Texturelabs_Sky_143M.jpg::CompressedTexture2D::6393941764143062262::1790282594::1790282624::1::::<><><>0<>0<>c2f871fbae3cbad2a0f190de0c5236c0<>res://.godot/imported/Texturelabs_Sky_143M.jpg-da480d932bc2e4980cfc9879bde9b81f.s3tc.ctex::
-::res://assets/art/_models/::1790595588
+::res://assets/art/_models/::1790607938
+DungunDagger.glb::PackedScene::4755488339464594873::1790601883::1790601886::1::::<><><>0<>0<>322b5d79e6e23aaddd3eebcd6b79ecfb<>res://.godot/imported/DungunDagger.glb-9edb2cdefb9855608c6319aeb978cada.scn::uid://nemabyiaqbvq::::res://assets/art/_models/DungunDagger_DungunDagger_Tex.png<>uid://d2l0uimp8yykq::::res://assets/art/_models/DungunDagger_DungunDagger_Tex_Roughness.png
+DungunDagger_DungunDagger_Tex.png::CompressedTexture2D::921441172186627934::1790601886::1790601886::1::::<><><>0<>0<>cdb117067847f81680fcf8ef47f1c0fe<>res://.godot/imported/DungunDagger_DungunDagger_Tex.png-734666a345b70362ad925a2b5eefe41e.s3tc.ctex::
+DungunDagger_DungunDagger_Tex_Roughness.png::CompressedTexture2D::9078623064749150580::1790601886::1790601886::1::::<><><>0<>0<>74ccd0031460f8cc81e3d6ef77bf8952<>res://.godot/imported/DungunDagger_DungunDagger_Tex_Roughness.png-8d6d3c1102537acfe267fe406e2b2e17.s3tc.ctex::
 foliage.glb::PackedScene::5244347534948603439::1790340923::1790341000::1::::<><><>0<>0<>d2d3f9fe83aff4e1b71c10e1ef911e9f<>res://.godot/imported/foliage.glb-f668c283f141c1c240d0e89109c62f8b.scn::uid://b3p2kdgecnpt::::res://assets/art/_models/foliage_foliage.png
 foliage_foliage.png::CompressedTexture2D::128950922224602005::1790340999::1790341000::1::::<><><>0<>0<>8cfc74e1d9b77b12da5f26fdfbb8ec4f<>res://.godot/imported/foliage_foliage.png-c818f0ca579dff58fd487094dafa34b8.s3tc.ctex::
 foliage_mesh.tres::MeshLibrary::4087419020196561132::1790342430::0::1::::<><><>0<>0<><>::uid://b3p2kdgecnpt::::res://assets/art/_models/foliage_foliage.png
 tree.glb::PackedScene::867831050143313528::1790340896::1790341000::1::::<><><>0<>0<>ac28b2c87a148fe099d4cb903d5a47a2<>res://.godot/imported/tree.glb-4a220563699c9a8e88cb898526ce56d6.scn::uid://ck1g2jql8mxl3::::res://assets/art/_models/tree_bark.png<>uid://dubf4pfwxxudm::::res://assets/art/_models/tree_pine_leave.png
 tree_bark.png::CompressedTexture2D::5528816641735520446::1790341000::1790341000::1::::<><><>0<>0<>8e7e05cae25915f71b0e3c24b5ffe7e8<>res://.godot/imported/tree_bark.png-0ef2a6b9858b5ff2bca6789ba29273cf.s3tc.ctex::
-tree_mesh.tres::MeshLibrary::1895944566931490154::1790595588::0::1::::<><><>0<>0<><>::uid://ck1g2jql8mxl3::::res://assets/art/_models/tree_bark.png<>uid://dubf4pfwxxudm::::res://assets/art/_models/tree_pine_leave.png
+tree_mesh.tres::MeshLibrary::1895944566931490154::1790607938::0::1::::<><><>0<>0<><>::uid://ck1g2jql8mxl3::::res://assets/art/_models/tree_bark.png<>uid://dubf4pfwxxudm::::res://assets/art/_models/tree_pine_leave.png
 tree_pine_leave.png::CompressedTexture2D::8565459471186601450::1790341000::1790341000::1::::<><><>0<>0<>a11d83fc2ce003c8b1dad619bd9bb3f5<>res://.godot/imported/tree_pine_leave.png-53fde9327175ceb66419c08e26b3de69.s3tc.ctex::
 ::res://assets/art/Animated-Lowpoly-Skeleton-v1.0/::1787238389
 ::res://assets/art/Animated-Lowpoly-Skeleton-v1.0/Overaction/::1787238389
@@ -42,11 +46,12 @@ progress-bar-frame.png::CompressedTexture2D::3493185765462328548::1787323692::17
 icon_sound - random.png::CompressedTexture2D::2150982693721946300::1790595544::1790595763::1::::<><><>0<>0<>55749d265c7376b7baecb59f064fa782<>res://.godot/imported/icon_sound - random.png-17bb500594ab53919313b4b266f4c0c5.ctex::
 icon_sound - switch.png::CompressedTexture2D::1392579896837432424::1790595561::1790595763::1::::<><><>0<>0<>f42fe818feac51a43dc40dd19e6c094c<>res://.godot/imported/icon_sound - switch.png-6df7ba88278577d40aae1d9947d606ae.ctex::
 ::res://assets/art/kenney_prototype-textures/::1790174021
-::res://assets/art/kenney_prototype-textures/Dark/::1790174035
+::res://assets/art/kenney_prototype-textures/Dark/::1790610872
+smoke_01.png::CompressedTexture2D::6890489092207545017::1790610871::1790610872::1::::<><><>0<>0<>8212999a5646b677b72525eb36eff482<>res://.godot/imported/smoke_01.png-3f5a1fd68216f7c6eeda8633e417014e.ctex::
 texture_01.png::CompressedTexture2D::8778039441857636910::1790174021::1790174031::1::::<><><>0<>0<>40b7ca6a05e0cbcdbd17eacabe84f667<>res://.godot/imported/texture_01.png-f7082adfeac47658ce356e7653ac0980.ctex::
 texture_02.png::CompressedTexture2D::2657079544639721864::1790174021::1790174031::1::::<><><>0<>0<>e45bf8027384c4de08d554f2cfb94603<>res://.godot/imported/texture_02.png-39b0308113471b3531403c9b83b80c04.ctex::
 texture_03.png::CompressedTexture2D::3470975158355478100::1790174021::1790174031::1::::<><><>0<>0<>fa10da1d42ec23a0994fbd0a6d46299e<>res://.godot/imported/texture_03.png-8d573296b2edd67ed389af0e6c5882c4.ctex::
-texture_04.png::CompressedTexture2D::1593966725921936394::1790174021::1790174031::1::::<><><>0<>0<>60f1998018ecec2af6f8a0cb03d89df1<>res://.godot/imported/texture_04.png-f7338d4d3e5ff3b28a466625b7e14f66.ctex::
+texture_04.png::CompressedTexture2D::1593966725921936394::1790174021::1790610845::1::::<><><>0<>0<>d83ed31eb4cd2aaa25961ad953bd41df<>res://.godot/imported/texture_04.png-f7338d4d3e5ff3b28a466625b7e14f66.s3tc.ctex::
 texture_05.png::CompressedTexture2D::1403460149955050316::1790174021::1790174031::1::::<><><>0<>0<>e66f117bb003bee364ed59a4f0c332df<>res://.godot/imported/texture_05.png-bb4e7ddd77e1eebcac3b2fb4e8956323.ctex::
 texture_06.png::CompressedTexture2D::202277987208527875::1790174021::1790174031::1::::<><><>0<>0<>e79d3e6b59b6c3ec38937c1c737aeb43<>res://.godot/imported/texture_06.png-74498318948c2afe7da541ff2fe5c5c0.ctex::
 texture_07.png::CompressedTexture2D::8862590164065544469::1790174021::1790174031::1::::<><><>0<>0<>96ea43f5683a6f83e9a57f076424aea9<>res://.godot/imported/texture_07.png-0fff17788f4a2d8283000e9a7ea26e29.ctex::
@@ -356,7 +361,8 @@ Wood_20-512x512.png::CompressedTexture2D::3720392333130645998::1787235858::17873
 grimhop choon 1 Speedhouse.wav::AudioStreamWAV::686201494114591868::1790261333::1790261925::1::::<><><>0<>0<>1c3c0c2648ec6a1fb827f2681c3f3be3<>res://.godot/imported/grimhop choon 1 Speedhouse.wav-546acedfb5823bb37ee48b7401bd615b.sample::
 Vegetation, Leaves, Branches Being Moved By People Or Animals 02 SND73181 1.wav::AudioStreamWAV::4668140331710026217::1790350535::1790350545::1::::<><><>0<>0<>6b26a8f101f417a7345b7ec61ab24306<>res://.godot/imported/Vegetation, Leaves, Branches Being Moved By People Or Animals 02 SND73181 1.wav-7abda2894ff6f943a8b76fd355b513e7.sample::
 Wind, Designed, Spooky Winds, Tonal, Whispers, Ghosts SND114972.wav::AudioStreamWAV::1217044647534940128::1790262880::1790262881::1::::<><><>0<>0<>e8084bbad9cd78c4b0e1ef9e57fcea4a<>res://.godot/imported/Wind, Designed, Spooky Winds, Tonal, Whispers, Ghosts SND114972.wav-00bb38dd0a7a0014faba4163a96a50b3.sample::
-::res://assets/audio/footsteps/::1790594597
+::res://assets/audio/footsteps/::1790608874
+Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 4.wav::AudioStreamWAV::8109158517274616175::1790608874::1790608874::1::::<><><>0<>0<>2f91fefea882737f11de8c01ebf125e3<>res://.godot/imported/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 4.wav-7b829651e5458fc9d71201148ba88f08.sample::
 Jump_01.wav::AudioStreamWAV::9173414750393969155::1790177376::1790177416::1::::<><><>0<>0<>2bb7383f4bf0e662a66ef928819af97e<>res://.godot/imported/Jump_01.wav-6bd5b1f36ea701570fc265f654cc0502.sample::
 Jump_02.wav::AudioStreamWAV::7211335091838136795::1790177376::1790177420::1::::<><><>0<>0<>63c73b8eff9437cdaa1802f3eb0e8cb7<>res://.godot/imported/Jump_02.wav-3d5efa890f20ce29d546f67eb207fb64.sample::
 Land_01.wav::AudioStreamWAV::3827479602082881856::1790177386::1790177406::1::::<><><>0<>0<>b29da7704ee64ca2f091d75068088003<>res://.godot/imported/Land_01.wav-20b7efa090c41c96189f110d85cd4cde.sample::
@@ -383,19 +389,34 @@ Fol_Foot_SurfaceLayer_Walk_Dirt_09.wav::AudioStreamWAV::8787164560277117628::179
 Fol_Foot_SurfaceLayer_Walk_Dirt_10.wav::AudioStreamWAV::9123467782909254616::1790594650::1790594650::1::::<><><>0<>0<>bba8b94b5d53425c5a665457054da2b5<>res://.godot/imported/Fol_Foot_SurfaceLayer_Walk_Dirt_10.wav-d44cb8f9ac5bddc36d7cd252080b478e.sample::
 Fol_Foot_SurfaceLayer_Walk_Dirt_11.wav::AudioStreamWAV::8796327983596965174::1790594650::1790594650::1::::<><><>0<>0<>27c128ddd9bec1ba764107d2c6e6bbe7<>res://.godot/imported/Fol_Foot_SurfaceLayer_Walk_Dirt_11.wav-a7fd0d3281eee1fb383b876bccda9441.sample::
 Fol_Foot_SurfaceLayer_Walk_Dirt_12.wav::AudioStreamWAV::3336446964753242168::1790594650::1790594650::1::::<><><>0<>0<>bf599ba995dbd9ba2ffc21ab055c7a91<>res://.godot/imported/Fol_Foot_SurfaceLayer_Walk_Dirt_12.wav-5f48dbdcba18f1e03176bbd2d8314ce0.sample::
+::res://assets/audio/footsteps/grass/::1790608480
+sfx_fs_climbingshoes_grass_short_jog_01.wav::AudioStreamWAV::8650099660669692851::1790608479::1790608480::1::::<><><>0<>0<>6593c8e1df7fdff99de054a77914a86f<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_01.wav-ebdef88cb26457b44113a5103040059b.sample::
+sfx_fs_climbingshoes_grass_short_jog_02.wav::AudioStreamWAV::7078976419093056955::1790608479::1790608480::1::::<><><>0<>0<>db782a364c01f0d52cd33834564a45c6<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_02.wav-8a5335badd701c66e5909602c1da8e21.sample::
+sfx_fs_climbingshoes_grass_short_jog_03.wav::AudioStreamWAV::3331655660731052008::1790608479::1790608480::1::::<><><>0<>0<>c153a44daccaa78e1e9770b77599a3ea<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_03.wav-64006b4b5967d6af65741b37d4128421.sample::
+sfx_fs_climbingshoes_grass_short_jog_04.wav::AudioStreamWAV::7403564056615054825::1790608479::1790608480::1::::<><><>0<>0<>a207442ac8f249b4c47f8830b272622f<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_04.wav-8fdedba207ae4ee79cef15b539512d9c.sample::
+sfx_fs_climbingshoes_grass_short_jog_05.wav::AudioStreamWAV::6415929966072372484::1790608479::1790608480::1::::<><><>0<>0<>ed624d81030d24e3af6e1dd8d0e881d3<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_05.wav-5e687f99adb522188ffa9d8eb630b906.sample::
+sfx_fs_climbingshoes_grass_short_jog_06.wav::AudioStreamWAV::2954928001695669672::1790608479::1790608480::1::::<><><>0<>0<>8b30ecb503640935064e6eae5de2b653<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_06.wav-72ee5b34dbb6ab3b2ab7469119c2ef41.sample::
+sfx_fs_climbingshoes_grass_short_jog_07.wav::AudioStreamWAV::3502727069562220012::1790608479::1790608480::1::::<><><>0<>0<>2d3e9a54bb573cd94198ea4ef393e654<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_07.wav-30a39db98887c89e2a5081dad89fe5c2.sample::
+sfx_fs_climbingshoes_grass_short_jog_08.wav::AudioStreamWAV::1842643850089240206::1790608479::1790608480::1::::<><><>0<>0<>6f8dcdf0ed094575068befded8385328<>res://.godot/imported/sfx_fs_climbingshoes_grass_short_jog_08.wav-feee31a5b9717fe686000132f23aab98.sample::
+::res://assets/audio/footsteps/water/::1790608886
+Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 1.wav::AudioStreamWAV::3037248391024004200::1790608857::1790608857::1::::<><><>0<>0<>324f7121af844264dc7bca66870dbdd2<>res://.godot/imported/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 1.wav-a60dc6476ecdd278f4f6961721a3c058.sample::
+Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 2.wav::AudioStreamWAV::3253594268795093086::1790608862::1790608863::1::::<><><>0<>0<>e3a58d58ab064cbb4367f5874e72c6d1<>res://.godot/imported/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 2.wav-39f2f6a9fc045b956de0e405614cb2ba.sample::
+Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 3.wav::AudioStreamWAV::3127611843346592457::1790608868::1790608868::1::::<><><>0<>0<>8d7fec06acc25fb3ffc9f55e53e8796b<>res://.godot/imported/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 3.wav-3f35abfcee02342f15a9878e55a92b98.sample::
+Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 5.wav::AudioStreamWAV::8084510059991404031::1790608886::1790608886::1::::<><><>0<>0<>f158b64a3932532d7dd9b88b3a722d07<>res://.godot/imported/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 5.wav-869a987cb765811a6171365aaf6f3fe8.sample::
+Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661.wav::AudioStreamWAV::1207908450875636824::1790608849::1790608850::1::::<><><>0<>0<>d309d6063817936c3d07c87d5630c1b2<>res://.godot/imported/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661.wav-284bad1b4d82bce294f6cb8333b08836.sample::
 ::res://source/::1790248705
-::res://source/audio/::1790596896
-bus.tres::AudioBusLayout::9131909922518163537::1790595572::0::1::::<><><>0<>0<><>::
-player_audio.gd::GDScript::4415095246406153951::1790596896::0::1::::<>Node3D<><>0<>0<><>::
-random_container.gd::GDScript::6879055243340866743::1790595201::0::1::::RandomContainer<>AudioStreamPlayer3D<><>0<>0<><>::
+::res://source/audio/::1790610150
+bus.tres::AudioBusLayout::9131909922518163537::1790607804::0::1::::<><><>0<>0<><>::
+player_audio.gd::GDScript::4415095246406153951::1790609675::0::1::::AudioManager_Player<>Node3D<><>0<>0<><>::
+random_container.gd::GDScript::6879055243340866743::1790609707::0::1::::RandomContainer<>AudioStreamPlayer3D<><>0<>0<><>::
 random_container.tscn::PackedScene::1394067728112408887::1790176308::0::1::::<><><>0<>0<><>::uid://c5ajbgim51orn::::res://source/audio/random_container.gd
-switch_container.gd::GDScript::863350133552708358::1790595999::0::1::::SwitchContainer<>Node<><>0<>0<><>::
-switch_container.tscn::PackedScene::270385944323067903::1790592431::0::1::::<><><>0<>0<><>::uid://mkhirwd2cb0q::::res://source/audio/switch_container.gd
+switch_container.gd::GDScript::863350133552708358::1790610119::0::1::::SwitchContainer<>Node3D<><>0<>0<><>::
+switch_container.tscn::PackedScene::270385944323067903::1790610150::0::1::::<><><>0<>0<><>::uid://mkhirwd2cb0q::::res://source/audio/switch_container.gd
 switch_container_item.gd::GDScript::1291014646028932199::1790592378::0::1::::SwitchContainerItem<>Node<><>0<>0<><>::
 ::res://source/core/::1787303973
-::res://source/core/autoloads/::1788966904
+::res://source/core/autoloads/::1790599736
 buff_manager.gd::GDScript::517169589719936562::1788966904::0::1::::<>Node<><>0<>0<><>::
-global.gd::GDScript::3458408824887080611::1788966904::0::1::::<>Node<><>0<>0<><>::
+global.gd::GDScript::3458408824887080611::1790599736::0::1::::<>Node<><>0<>0<><>::
 ::res://source/core/maingame/::1787303973
 ::res://source/debug/::1787303947
 ::res://source/gameplay/::1790179115
@@ -419,31 +440,35 @@ action_data.gd::GDScript::1345010610040144497::1790008922::0::1::::ActionData<>R
 consumable_action.gd::GDScript::2338260741996281890::1790009002::0::1::::ConsumableData<>ActionData<><>0<>0<><>::
 equippable_action.gd::GDScript::4958892042675853148::1790009083::0::1::::EquippableAction<>ActionData<><>0<>0<><>::
 inspectable_action.gd::GDScript::8267967425133742834::1790009119::0::1::::InspectableAction<>ActionData<><>0<>0<><>::
-::res://source/gameplay/player/::1790596520
+::res://source/gameplay/player/::1790610313
 arms.gd::GDScript::6346564321250386159::1787243090::0::1::::<>Node3D<><>0<>0<><>::
 arms.tscn::PackedScene::8501600807579314605::1787644965::0::1::::<><><>0<>0<><>::uid://gpccd1yjmm64::::res://assets/art/psx-first-person-arms-free-game-assets/arms_rig.fbx<>uid://cwok8teap5mc2::::res://source/gameplay/player/arms.gd
-player.gd::GDScript::8072669926332093253::1790593974::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
-player.tscn::PackedScene::7932132944918637046::1790596520::0::1::::<><><>0<>0<><>::uid://dnapxus80ul3r::::res://source/gameplay/player/player.gd<>uid://ba86g5rhsset8::::res://source/shaders/shaderoverlay.gdshader<>uid://c5ajbgim51orn::::res://source/audio/random_container.gd<>uid://cxo53k2wukrjk::::res://source/ui/hud.tscn<>uid://bfemx2kp5sj5h::::res://source/gameplay/interactions/interaction_controller.tscn<>uid://cv242sx64sb4m::::res://source/gameplay/weapons/Sword/sword.tres<>uid://duoequxihr1ab::::res://source/gameplay/weapons/resources/weapon_controller.gd<>uid://b35x8dsr8vfhf::::res://source/audio/player_audio.gd<>uid://r8rlr74ekhww::::res://source/gameplay/weapons/FireStaff/firestaff.tres<>uid://bpu351pw0myyq::::res://source/gameplay/inventory/inventory_controller.tscn<>uid://cyfeqcnat276i::::res://assets/audio/footsteps/concrete/Footstep_01.wav<>uid://t4kdeel5ewd0::::res://source/audio/random_container.tscn<>uid://bdw3r2c2eebtb::::res://assets/audio/footsteps/concrete/Footstep_02.wav<>uid://7t56t13kxupa::::res://assets/audio/footsteps/concrete/Footstep_04.wav<>uid://bhxuvg768wb6v::::res://assets/audio/footsteps/concrete/Footstep_05.wav<>uid://dgdmrps8ss2uu::::res://assets/audio/footsteps/concrete/Footstep_06.wav<>uid://chtbdjnlmluw2::::res://assets/audio/footsteps/concrete/Footstep_07.wav<>uid://bmcvto5sgmqa::::res://assets/audio/footsteps/concrete/Footstep_08.wav<>uid://3yhfa1oq1paf::::res://assets/audio/footsteps/concrete/Footstep_09.wav<>uid://d3xw2huf7psml::::res://assets/audio/footsteps/Jump_01.wav<>uid://d3mn3fjraqyuj::::res://assets/audio/footsteps/concrete/Footstep_10.wav<>uid://da0hvuqyiylwd::::res://assets/audio/footsteps/Jump_02.wav<>uid://buscbaralghs7::::res://assets/audio/footsteps/Land_01.wav<>uid://ca558688a6gmq::::res://assets/audio/footsteps/Land_02.wav<>uid://d38hm360a7pr::::res://source/audio/switch_container.tscn<>uid://ds1cb6jinr3mr::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_01.wav<>uid://44u35e4tpi7j::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_02.wav<>uid://dx8x0ftj5h1x::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_03.wav<>uid://cjoam2y4f1qji::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_04.wav<>uid://ciyxx3nr6qqoq::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_05.wav<>uid://c3cjenl6cpokf::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_06.wav<>uid://16m18utnqr0r::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_07.wav<>uid://dxgtk04g58pp1::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_09.wav<>uid://d28qgfy5mgrv1::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_10.wav<>uid://dxlaibwpe25re::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_11.wav<>uid://bnsg186jtsio3::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_12.wav
+player.gd::GDScript::8072669926332093253::1790610313::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
+player.tscn::PackedScene::7932132944918637046::1790610313::0::1::::<><><>0<>0<><>::uid://dnapxus80ul3r::::res://source/gameplay/player/player.gd<>uid://ba86g5rhsset8::::res://source/shaders/shaderoverlay.gdshader<>uid://c5ajbgim51orn::::res://source/audio/random_container.gd<>uid://cxo53k2wukrjk::::res://source/ui/hud.tscn<>uid://shsnimrfcjxy::::res://source/gameplay/weapons/Dagger/dagger.tres<>uid://bfemx2kp5sj5h::::res://source/gameplay/interactions/interaction_controller.tscn<>uid://cv242sx64sb4m::::res://source/gameplay/weapons/Sword/sword.tres<>uid://duoequxihr1ab::::res://source/gameplay/weapons/resources/weapon_controller.gd<>uid://b35x8dsr8vfhf::::res://source/audio/player_audio.gd<>uid://bpu351pw0myyq::::res://source/gameplay/inventory/inventory_controller.tscn<>uid://cyfeqcnat276i::::res://assets/audio/footsteps/concrete/Footstep_01.wav<>uid://t4kdeel5ewd0::::res://source/audio/random_container.tscn<>uid://bdw3r2c2eebtb::::res://assets/audio/footsteps/concrete/Footstep_02.wav<>uid://7t56t13kxupa::::res://assets/audio/footsteps/concrete/Footstep_04.wav<>uid://bhxuvg768wb6v::::res://assets/audio/footsteps/concrete/Footstep_05.wav<>uid://dgdmrps8ss2uu::::res://assets/audio/footsteps/concrete/Footstep_06.wav<>uid://chtbdjnlmluw2::::res://assets/audio/footsteps/concrete/Footstep_07.wav<>uid://bmcvto5sgmqa::::res://assets/audio/footsteps/concrete/Footstep_08.wav<>uid://3yhfa1oq1paf::::res://assets/audio/footsteps/concrete/Footstep_09.wav<>uid://d3xw2huf7psml::::res://assets/audio/footsteps/Jump_01.wav<>uid://d3mn3fjraqyuj::::res://assets/audio/footsteps/concrete/Footstep_10.wav<>uid://da0hvuqyiylwd::::res://assets/audio/footsteps/Jump_02.wav<>uid://buscbaralghs7::::res://assets/audio/footsteps/Land_01.wav<>uid://ca558688a6gmq::::res://assets/audio/footsteps/Land_02.wav<>uid://d38hm360a7pr::::res://source/audio/switch_container.tscn<>uid://ds1cb6jinr3mr::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_01.wav<>uid://44u35e4tpi7j::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_02.wav<>uid://dx8x0ftj5h1x::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_03.wav<>uid://cjoam2y4f1qji::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_04.wav<>uid://ciyxx3nr6qqoq::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_05.wav<>uid://c3cjenl6cpokf::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_06.wav<>uid://16m18utnqr0r::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_07.wav<>uid://dxgtk04g58pp1::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_09.wav<>uid://d28qgfy5mgrv1::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_10.wav<>uid://dxlaibwpe25re::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_11.wav<>uid://bnsg186jtsio3::::res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_12.wav<>uid://dvif43r2wnjx0::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_01.wav<>uid://c74dybyrohwql::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_02.wav<>uid://bnp448s8687ge::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_03.wav<>uid://ddqlva2fuqkt2::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_04.wav<>uid://cxn6oud11s1dg::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_05.wav<>uid://bidnh5y50oag3::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_06.wav<>uid://bp50nx7xp18f5::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_07.wav<>uid://1iucsxxvw4wo::::res://assets/audio/footsteps/grass/sfx_fs_climbingshoes_grass_short_jog_08.wav<>uid://bjjjbjcgaw31u::::res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 1.wav<>uid://bmmchs6l8wwqg::::res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 2.wav<>uid://bktbksqtkkl3v::::res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 3.wav<>uid://dnggx1wgiuq76::::res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661 5.wav<>uid://rhectrvygk6c::::res://assets/audio/footsteps/water/Footsteps, Human, Layer, Water Puddles, Stairs, Down, Close SND126661.wav
 ::res://source/gameplay/spells/::1787304081
 ::res://source/gameplay/spells/fireball/::1790344589
 fireball.gd::GDScript::5744219518789358501::1790344589::0::1::::<>CharacterBody3D<><>0<>0<><>::
 fireball.tscn::PackedScene::2644009777815675495::1790344536::0::1::::<><><>0<>0<><>::uid://cn3sprn2h42fx::::res://source/gameplay/spells/fireball/fireball.gd<>uid://bmfrxiroulyqd::::res://source/resources/materials/mat_fire.tres
-::res://source/gameplay/weapons/::1787318941
+::res://source/gameplay/weapons/::1790601905
+::res://source/gameplay/weapons/Dagger/::1790603169
+dagger.gd::GDScript::8005915663089139698::1790602061::0::1::::<>Node3D<><>0<>0<><>::
+dagger.tres::Resource/Weapon::1278966390457189194::1790602446::0::1::::<><><>0<>0<><>::uid://bk24h7c6nxytq::::res://source/gameplay/weapons/resources/weapon.gd<>uid://cgd688lteemq::::res://source/gameplay/weapons/Dagger/dagger.tscn
+dagger.tscn::PackedScene::153003249164217384::1790603169::0::1::::<><><>0<>0<><>::uid://b80ug0cxu2gbh::::res://assets/art/_models/DungunDagger.glb<>uid://dmcei5b3eerpq::::res://source/gameplay/weapons/Dagger/dagger.gd
 ::res://source/gameplay/weapons/FireStaff/::1790344345
 firestaff.gd::GDScript::6075392258348076638::1788966904::0::1::::<>Node3D<><>0<>0<><>::
 firestaff.tres::Resource/Weapon::1262387583994575182::1790344345::0::1::::<><><>0<>0<><>::uid://nmfe4mxwajji::::res://source/gameplay/weapons/FireStaff/firestaff.tscn<>uid://bk24h7c6nxytq::::res://source/gameplay/weapons/resources/weapon.gd
 firestaff.tscn::PackedScene::937539771271822238::1788966904::0::1::::<><><>0<>0<><>::uid://jc5biioamtkv::::res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Wizard_Staff.fbx<>uid://css728ibtlhik::::res://source/gameplay/weapons/FireStaff/firestaff.gd<>uid://d4gtm2n8h8s64::::res://anims/equip.res<>uid://dq5y3kiinidxd::::res://anims/idle.res
 ::res://source/gameplay/weapons/Fists/::1787318928
 fists.tres::Resource/Weapon::409624130040492354::1787318928::0::1::::<><><>0<>0<><>::uid://bk24h7c6nxytq::::res://source/gameplay/weapons/resources/weapon.gd
-::res://source/gameplay/weapons/resources/::1790346991
+::res://source/gameplay/weapons/resources/::1790602564
 weapon.gd::GDScript::3145822298044216926::1790346131::0::1::::Weapon<>Resource<><>0<>0<><>::
-weapon_controller.gd::GDScript::8592212739441372321::1790346991::0::1::::WeaponController<>Node<><>0<>0<><>::
-::res://source/gameplay/weapons/Sword/::1790344265
+weapon_controller.gd::GDScript::8592212739441372321::1790602564::0::1::::WeaponController<>Node<><>0<>0<><>::
+::res://source/gameplay/weapons/Sword/::1790602990
 sword.gd::GDScript::297397324213313196::1788966904::0::1::::<>Node3D<><>0<>0<><>::
 sword.tres::Resource/Weapon::6304355274768921450::1790344265::0::1::::<><><>0<>0<><>::uid://doy8ad2rxdvs8::::res://source/gameplay/weapons/Sword/sword.tscn<>uid://bk24h7c6nxytq::::res://source/gameplay/weapons/resources/weapon.gd
-sword.tscn::PackedScene::8193454788953534913::1788966904::0::1::::<><><>0<>0<><>::uid://doq6dyc1dn26v::::res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Arming_Sword.fbx<>uid://eicdcuhap2om::::res://source/gameplay/weapons/Sword/sword.gd
-::res://source/levels/::1790596998
-lvl_sandbox.tscn::PackedScene::4698788767381354161::1790597099::0::1::::<><><>0<>0<><>::uid://cr1xgnswe84sx::::res://assets/art/kenney_prototype-textures/Dark/texture_13.png<>uid://2an6vdmngams::::res://assets/art/_models/tree_mesh.tres<>uid://c5e80iwikwrex::::res://source/levels/trees_gridmap.gd<>uid://dlancny6423pa::::res://source/gameplay/player/player.tscn<>uid://klfae3ykxryv::::res://source/resources/materials/mat_dirt_TEST.tres<>uid://j1nvx62171gi::::res://assets/audio/grimhop choon 1 Speedhouse.wav<>uid://rlssu7hld7yi::::res://assets/audio/Wind, Designed, Spooky Winds, Tonal, Whispers, Ghosts SND114972.wav<>uid://b58p74twhm8ws::::res://source/gameplay/enemies/skeleton.tscn<>uid://bdv1na6n8qqaf::::res://source/resources/materials/mat_concrete.tres
+sword.tscn::PackedScene::8193454788953534913::1790602990::0::1::::<><><>0<>0<><>::uid://doq6dyc1dn26v::::res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Arming_Sword.fbx<>uid://eicdcuhap2om::::res://source/gameplay/weapons/Sword/sword.gd
+::res://source/levels/::1790610543
+lvl_sandbox.tscn::PackedScene::4698788767381354161::1790610543::0::1::::<><><>0<>0<><>::uid://cr1xgnswe84sx::::res://assets/art/kenney_prototype-textures/Dark/texture_13.png<>uid://2an6vdmngams::::res://assets/art/_models/tree_mesh.tres<>uid://c5e80iwikwrex::::res://source/levels/trees_gridmap.gd<>uid://dlancny6423pa::::res://source/gameplay/player/player.tscn<>uid://klfae3ykxryv::::res://source/resources/materials/mat_dirt.tres<>uid://j1nvx62171gi::::res://assets/audio/grimhop choon 1 Speedhouse.wav<>uid://rlssu7hld7yi::::res://assets/audio/Wind, Designed, Spooky Winds, Tonal, Whispers, Ghosts SND114972.wav<>uid://b58p74twhm8ws::::res://source/gameplay/enemies/skeleton.tscn<>uid://bdv1na6n8qqaf::::res://source/resources/materials/mat_concrete.tres<>uid://voi35tkdg2bk::::res://source/resources/materials/material_surface.gd<>uid://df351upgxdbak::::res://source/resources/materials/mat_water.tres
 lvl_test.tscn::PackedScene::2851453733010261871::1790263603::0::1::::<><><>0<>0<><>::uid://dlancny6423pa::::res://source/gameplay/player/player.tscn<>uid://b58p74twhm8ws::::res://source/gameplay/enemies/skeleton.tscn<>uid://baueg3qwgs4b3::::res://source/objects/floor/floor.tscn<>uid://bb0ie7iu3ilf0::::res://source/objects/wall/wall.tscn<>uid://j1nvx62171gi::::res://assets/audio/grimhop choon 1 Speedhouse.wav<>uid://rlssu7hld7yi::::res://assets/audio/Wind, Designed, Spooky Winds, Tonal, Whispers, Ghosts SND114972.wav
 trees_gridmap.gd::GDScript::6888812947702558003::1790351286::0::1::::<>GridMap<><>0<>0<><>::
 ::res://source/objects/::1790351898
@@ -455,13 +480,15 @@ floor.tscn::PackedScene::2427963317887804898::1790596629::0::1::::<><><>0<>0<><>
 ::res://source/objects/wall/::1787307337
 wall.tscn::PackedScene::2508713544352472303::1787307337::0::1::::<><><>0<>0<><>::uid://dvttqd0j3u2tr::::res://source/resources/materials/mat_brick.tres
 ::res://source/resources/::1787308525
-::res://source/resources/materials/::1790597064
+::res://source/resources/materials/::1790610519
+material_surface.gd::GDScript::1503404348637404280::1790608959::0::1::::MaterialSurface<>StandardMaterial3D<><>0<>0<><>::
 mat_brick.tres::StandardMaterial3D::8673633337007475139::1787303732::0::1::::<><><>0<>0<><>::uid://cuffjjbmy4w48::::res://assets/art/SBS - Tiny Texture Pack 2 - 512x512/512x512/Brick/Brick_12-512x512.png
+mat_concrete.tres::StandardMaterial3D/MaterialSurface::2641941053099489077::1790610519::0::1::::<><><>0<>0<><>::uid://voi35tkdg2bk::::res://source/resources/materials/material_surface.gd<>uid://dsopdwcptgxuk::::res://assets/art/ground.png<>uid://csv33o63w7wlk::::res://assets/art/ground_n.png
+mat_dirt.tres::StandardMaterial3D/MaterialSurface::724900431091475937::1790608261::0::1::::<><><>0<>0<><>::uid://voi35tkdg2bk::::res://source/resources/materials/material_surface.gd<>uid://dsopdwcptgxuk::::res://assets/art/ground.png<>uid://csv33o63w7wlk::::res://assets/art/ground_n.png
 mat_fire.tres::StandardMaterial3D::3240082405368390555::1787303732::0::1::::<><><>0<>0<><>::uid://cu2omsapa4ud4::::res://assets/art/SBS - Tiny Texture Pack 2 - 512x512/512x512/Elements/Elements_06-512x512.png
-material_surface.gd::GDScript::1503404348637404280::1790596896::0::1::::MaterialSurface<>StandardMaterial3D<><>0<>0<><>::
-mat_dirt_TEST.tres::StandardMaterial3D/MaterialSurface::724900431091475937::1790596995::0::1::::<><><>0<>0<><>::uid://voi35tkdg2bk::::res://source/resources/materials/material_surface.gd<>uid://dsopdwcptgxuk::::res://assets/art/ground.png<>uid://csv33o63w7wlk::::res://assets/art/ground_n.png
-mat_concrete.tres::StandardMaterial3D/MaterialSurface::2641941053099489077::1790597087::0::1::::<><><>0<>0<><>::uid://voi35tkdg2bk::::res://source/resources/materials/material_surface.gd<>uid://dsopdwcptgxuk::::res://assets/art/ground.png<>uid://csv33o63w7wlk::::res://assets/art/ground_n.png
-::res://source/shaders/::1790595588
-shaderoverlay.gdshader::Shader::2456439693421257607::1790595588::0::1::::<><><>0<>0<><>::
-::res://source/ui/::1790349937
-hud.tscn::PackedScene::6417958139600054544::1790349937::0::1::::<><><>0<>0<><>::uid://6uo5psc65vvr::::res://assets/art/circle progress bar/progress-bar-circle.png
+mat_grass.tres::StandardMaterial3D/MaterialSurface::7809807939630908481::1790608416::0::1::::<><><>0<>0<><>::uid://dsopdwcptgxuk::::res://assets/art/ground.png<>uid://csv33o63w7wlk::::res://assets/art/ground_n.png<>uid://voi35tkdg2bk::::res://source/resources/materials/material_surface.gd
+mat_water.tres::StandardMaterial3D/MaterialSurface::7569877860750196502::1790609012::0::1::::<><><>0<>0<><>::uid://dsopdwcptgxuk::::res://assets/art/ground.png<>uid://csv33o63w7wlk::::res://assets/art/ground_n.png<>uid://voi35tkdg2bk::::res://source/resources/materials/material_surface.gd
+::res://source/shaders/::1790607938
+shaderoverlay.gdshader::Shader::2456439693421257607::1790607938::0::1::::<><><>0<>0<><>::
+::res://source/ui/::1790601862
+hud.tscn::PackedScene::6417958139600054544::1790601862::0::1::::<><><>0<>0<><>::uid://6uo5psc65vvr::::res://assets/art/circle progress bar/progress-bar-circle.png

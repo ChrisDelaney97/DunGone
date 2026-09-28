@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://cgd688lteemq"]
+
+[ext_resource type="PackedScene" uid="uid://b80ug0cxu2gbh" path="res://assets/art/_models/DungunDagger.glb" id="1_gwv2y"]
+[ext_resource type="Script" uid="uid://dmcei5b3eerpq" path="res://source/gameplay/weapons/Dagger/dagger.gd" id="2_d51q5"]
+
+[sub_resource type="Animation" id="Animation_d51q5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DungunDagger:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungunDagger:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7fyjf"]
+resource_name = "equip"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DungunDagger:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.5, 0, 1), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungunDagger:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.39999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-0.027673306, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="Animation" id="Animation_5aatn"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DungunDagger:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.02, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungunDagger:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.027673306, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="Animation" id="Animation_hr60t"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DungunDagger:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.089859754, -0.00040355278, 0.042870454), Vector3(-0.1445928, -0.025869513, -0.35402045), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungunDagger:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.027673306, -0.4450334, 0.33797738), Vector3(-0.027673366, -0.44503334, -0.0040548006), Vector3(-0.027925268, -0.7644542, 1.0663961), Vector3(-0.027673364, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="Animation" id="Animation_17eb1"]
+resource_name = "secondary"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DungunDagger:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.09, 0.29, 0.043), Vector3(-0.215, -0.026, -0.564), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DungunDagger:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.027673306, -0.4450334, 0.33797738), Vector3(-0.010471975, -0.84648466, -0.6318092), Vector3(0.15533431, -0.991347, 1.5899949), Vector3(-0.027673364, -0.4450334, 0.33797738)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5aatn"]
+_data = {
+&"RESET": SubResource("Animation_d51q5"),
+&"equip": SubResource("Animation_7fyjf"),
+&"idle": SubResource("Animation_5aatn"),
+&"primary": SubResource("Animation_hr60t"),
+&"secondary": SubResource("Animation_17eb1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d51q5"]
+animation = &"equip"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7fyjf"]
+animation = &"primary"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5aatn"]
+animation = &"secondary"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hr60t"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_17eb1"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qb5p6"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_tcha4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_17eb1"]
+graph_offset = Vector2(-719, 92)
+nodes/output/position = Vector2(420, 220)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_hr60t")
+nodes/Animation/position = Vector2(-340, 220)
+nodes/equip/node = SubResource("AnimationNodeOneShot_17eb1")
+nodes/equip/position = Vector2(-140, 220)
+nodes/primary/node = SubResource("AnimationNodeOneShot_qb5p6")
+nodes/primary/position = Vector2(60, 220)
+nodes/secondary/node = SubResource("AnimationNodeOneShot_tcha4")
+nodes/secondary/position = Vector2(240, 220)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_d51q5")
+"nodes/Animation 2/position" = Vector2(-300, 460)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_7fyjf")
+"nodes/Animation 3/position" = Vector2(-100, 500)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_5aatn")
+"nodes/Animation 4/position" = Vector2(60, 480)
+node_connections = [&"output", 0, &"secondary", &"equip", 0, &"Animation", &"equip", 1, &"Animation 2", &"primary", 0, &"equip", &"primary", 1, &"Animation 3", &"secondary", 0, &"primary", &"secondary", 1, &"Animation 4"]
+
+[node name="Dagger" unique_id=302147750 instance=ExtResource("1_gwv2y")]
+script = ExtResource("2_d51q5")
+
+[node name="DungunDagger" parent="." index="0" unique_id=815332851]
+transform = Transform3D(0.5500001, 0, 0, 0, 0.55, 0, 0, 0, 0.5500001, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=881930685]
+libraries/ = SubResource("AnimationLibrary_5aatn")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=99173643]
+tree_root = SubResource("AnimationNodeBlendTree_17eb1")
+anim_player = NodePath("../AnimationPlayer")
+parameters/equip/active = false
+parameters/equip/internal_active = false
+parameters/equip/request = 0
+parameters/primary/active = false
+parameters/primary/internal_active = false
+parameters/primary/request = 0
+parameters/secondary/active = false
+parameters/secondary/internal_active = false
+parameters/secondary/request = 0
