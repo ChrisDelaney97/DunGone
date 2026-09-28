@@ -13,5 +13,5 @@ secondary_action_damage = 8
 secondary_action_stamina_cost = 30
 secondary_action_cooldown = 5.0
 model = ExtResource("1_5hb7k")
-position = Vector3(0.255, -0.135, -0.39)
+position = Vector3(0.5, -0.25, -0.4)
 metadata/_custom_type_script = "uid://bk24h7c6nxytq"

@@ -4,30 +4,30 @@
 [ext_resource type="PackedScene" uid="uid://b58p74twhm8ws" path="res://source/gameplay/enemies/skeleton.tscn" id="2_gh1q8"]
 [ext_resource type="PackedScene" uid="uid://baueg3qwgs4b3" path="res://source/objects/floor/floor.tscn" id="3_4hpvy"]
 [ext_resource type="PackedScene" uid="uid://bb0ie7iu3ilf0" path="res://source/objects/wall/wall.tscn" id="4_4oyfp"]
+[ext_resource type="AudioStream" uid="uid://j1nvx62171gi" path="res://assets/audio/grimhop choon 1 Speedhouse.wav" id="5_4hpvy"]
+[ext_resource type="AudioStream" uid="uid://rlssu7hld7yi" path="res://assets/audio/Wind, Designed, Spooky Winds, Tonal, Whispers, Ghosts SND114972.wav" id="6_4oyfp"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1c2mv"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4hpvy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_f7g2b"]
-sky_material = SubResource("ProceduralSkyMaterial_1c2mv")
+sky_material = SubResource("ProceduralSkyMaterial_4hpvy")
 
-[sub_resource type="Environment" id="Environment_4ptq8"]
+[sub_resource type="Environment" id="Environment_4oyfp"]
 background_mode = 2
 sky = SubResource("Sky_f7g2b")
 ambient_light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
 ambient_light_sky_contribution = 0.0
-ambient_light_energy = 0.02
+ambient_light_energy = 0.5
 tonemap_mode = 2
 fog_enabled = true
 fog_light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
-fog_light_energy = 0.02
-fog_density = 0.1
+fog_light_energy = 0.09
+fog_density = 0.0248
+fog_sky_affect = 0.993
 
 [node name="TestLevel" type="Node3D" unique_id=1761326536]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=159260192]
-environment = SubResource("Environment_4ptq8")
 
 [node name="Player" parent="." unique_id=1836785606 instance=ExtResource("1_plfmm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3565035, 0, -1.1896224)
@@ -466,3 +466,23 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 
 
 [node name="Floor35" parent="." unique_id=2036186210 instance=ExtResource("4_4oyfp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 1)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1125412232]
+stream = ExtResource("5_4hpvy")
+pitch_scale = 0.5
+autoplay = true
+bus = &"Music"
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1650486151]
+stream = ExtResource("6_4oyfp")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1804568833]
+environment = SubResource("Environment_4oyfp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=900973242]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+shadow_enabled = true

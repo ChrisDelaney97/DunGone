@@ -16,13 +16,13 @@ class_name Weapon
 @export var position: Vector3
 
 func primary_action(player: Player, anim: AnimationTree, cast_spawn: Node3D):
-	if player.stamina >= primary_action_stamina_cost and player.mana >= primary_action_mana_cost:
+	if player.stamina > 0 and player.mana > 0:
 		player.spend_stamina(primary_action_stamina_cost)
 		player.spend_mana(primary_action_mana_cost)
 		anim["parameters/primary/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	
 func secondary_action(player: Player, anim: AnimationTree, cast_spawn: Node3D):
-	if player.stamina >= secondary_action_stamina_cost and player.mana >= secondary_action_mana_cost:
+	if player.stamina > 0 and player.mana > 0:
 		player.spend_stamina(secondary_action_stamina_cost)
 		player.spend_mana(secondary_action_mana_cost)
 		anim["parameters/secondary/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE

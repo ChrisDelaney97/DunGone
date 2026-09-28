@@ -21,12 +21,14 @@ var current_weapon: Weapon
 
 func _ready() -> void:
 	if primary_weapon: current_weapon = primary_weapon
-	# # # # # # # # if current_weapon: spawn_weapon_model()
+	if current_weapon: spawn_weapon_model()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("primary_action") and primary_cooldown_ready: primary_action()
-	if event.is_action_pressed("secondary_action") and secondary_cooldown_ready: secondary_action()
-	# # # # # # # if event.is_action_pressed("swap_weapon") and primary_weapon != null and secondary_weapon != null: swap_weapon()
+	if event.is_action_pressed("primary_action") and primary_cooldown_ready and !player.inventory_open: primary_action()
+	if event.is_action_pressed("secondary_action") and secondary_cooldown_ready and !player.inventory_open: secondary_action()
+	if event.is_action_pressed("swap_weapon") and primary_weapon and secondary_weapon and !player.inventory_open: swap_weapon()
+	if event.is_action_pressed("equip1") and primary_weapon and !player.inventory_open: equip_weapon_1()
+	if event.is_action_pressed("equip2") and secondary_weapon and !player.inventory_open: equip_weapon_2()
 
 func _process(delta: float) -> void:
 	if !primary_cooldown.is_stopped():
@@ -69,4 +71,14 @@ func swap_weapon():
 	if primary_weapon and secondary_weapon:
 		if current_weapon == primary_weapon: current_weapon = secondary_weapon
 		elif current_weapon == secondary_weapon: current_weapon = primary_weapon
+		spawn_weapon_model()
+
+func equip_weapon_1():
+	if primary_weapon and current_weapon == secondary_weapon:
+		current_weapon = primary_weapon
+		spawn_weapon_model()
+
+func equip_weapon_2():
+	if secondary_weapon and current_weapon == primary_weapon:
+		current_weapon = secondary_weapon
 		spawn_weapon_model()

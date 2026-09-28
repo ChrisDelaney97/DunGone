@@ -8,10 +8,12 @@ class_name Player
 @onready var camera: Camera3D = %Camera
 @onready var stand_up_check: RayCast3D = %StandUpCheck
 @onready var audio: Node3D = %AudioManager
+@onready var shader_overlay: MeshInstance3D = %ShaderOverlay
+@onready var inventory_controller: Node = %InventoryController
 
-@onready var health_bar: ProgressBar = $HUD.get_node("VBoxContainer/HealthBar")
-@onready var stamina_bar: ProgressBar = $HUD.get_node("VBoxContainer/StaminaBar")
-@onready var mana_bar: ProgressBar = $HUD.get_node("VBoxContainer/ManaBar")
+@onready var health_bar: ProgressBar = %HUD.get_node("VBoxContainer/HealthBar")
+@onready var stamina_bar: ProgressBar = %HUD.get_node("VBoxContainer/StaminaBar")
+@onready var mana_bar: ProgressBar = %HUD.get_node("VBoxContainer/ManaBar")
 @onready var cast_spawn: Node3D = $CastSpawn
 
 var lerp_speed: float = 10.0
@@ -19,7 +21,7 @@ var lerp_speed: float = 10.0
 # Movement Variables
 const WALK_SPEED: float = 4.5
 const SPRINT_SPEED: float = 7.0
-const CROUCH_SPEED: float = 1.0
+const CROUCH_SPEED: float = 1.5
 const JUMP_VELOCITY: float = 4.0
 var current_speed: float = 3.0
 var moving: bool = false
@@ -36,6 +38,7 @@ var mouse_input: Vector2
 var joypad_input: Vector2
 var mouse_sensitivity: float = 0.2
 var joypad_sensitivity: float = 0.05
+var inventory_open: bool = false
 
 # Headbob Variables
 const HEAD_BOBBING_SPRINTING_SPEED: float = 22.0
@@ -68,13 +71,28 @@ enum PlayerState {
 }
 
 func _ready() -> void:
+	#shader_overlay.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	#if event is InputEventMouseMotion:
+		#rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+		#head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		#head.rotation.x = clamp(head.rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	
+	if Input.is_action_pressed("inventory"):
+		inventory_open = true
+		inventory_controller.get_node("CanvasLayer/InventoryUI").visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	
+	if Input.is_action_just_released("inventory"):
+		inventory_open = false
+		inventory_controller.get_node("CanvasLayer/InventoryUI").visible = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(_delta: float) -> void:
 	health_bar.value = health
@@ -105,7 +123,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	input_dir = Input.get_vector("left", "right", "forward", "back")
 	direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
-	if direction:
+	if direction and !inventory_open:
 		velocity.x = direction.x * current_speed
 		velocity.z = direction.z * current_speed
 	else:
@@ -116,7 +134,10 @@ func _physics_process(delta: float) -> void:
 
 func update_player_state() -> void:
 	moving = (input_dir != Vector2.ZERO)
-	if not is_on_floor():
+	if inventory_open:
+		player_state = PlayerState.IDLE_STAND
+		return
+	elif not is_on_floor():
 		player_state = PlayerState.AIR
 	else:
 		if Input.is_action_pressed("crouch"):
@@ -127,11 +148,11 @@ func update_player_state() -> void:
 		elif !stand_up_check.is_colliding():
 			if not moving:
 				player_state = PlayerState.IDLE_STAND
-			elif Input.is_action_pressed("sprint"):
+			elif Input.is_action_pressed("sprint") and stamina > 0:
+				spend_stamina(0.5)
 				player_state = PlayerState.SPRINTING
 			else:
 				player_state = PlayerState.WALKING
-	
 	update_player_col_shape(player_state)
 	update_player_speed(player_state)
 
@@ -177,7 +198,7 @@ func update_camera(delta: float) -> void:
 	
 	head_bobbing_vector.y = sin(head_bobbing_index)
 	head_bobbing_vector.x = sin(head_bobbing_index/2.0)
-	if moving:
+	if moving and !inventory_open:
 		eyes.position.y = lerp(eyes.position.y, head_bobbing_vector.y * (head_bobbing_current_intensity/2.0), delta * lerp_speed)
 		eyes.position.x = lerp(eyes.position.x, head_bobbing_vector.x * (head_bobbing_current_intensity), delta * lerp_speed)
 	else:
@@ -186,13 +207,17 @@ func update_camera(delta: float) -> void:
 	
 	footsteps()
 
-func spend_stamina(amount:int):
-	stamina_recharging = false
-	stamina -= amount
-	$StaminaTimer.start()
+func spend_stamina(amount:float):
+	if stamina > 0:
+		stamina_recharging = false
+		stamina -= amount
+		$StaminaTimer.start()
+		if stamina < 0: stamina = 0
 
 func spend_mana(amount:int):
-	mana -= amount
+	if mana > 0:
+		mana -= amount
+		if mana < 0: mana = 0
 
 func _on_stamina_timer_timeout() -> void:
 	stamina_recharging = true
@@ -206,7 +231,7 @@ func death():
 	queue_free()
 
 func footsteps() -> void:
-	if moving and is_on_floor():
+	if moving and is_on_floor() and !inventory_open:
 		var bob_position_x = head_bobbing_vector.x
 		var bob_direction = sign(bob_position_x - last_bob_position_x)
 		

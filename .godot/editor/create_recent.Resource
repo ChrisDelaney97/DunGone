@@ -1,2 +1,2 @@
-res://source/gameplay/weapons/resources/weapon.gd
+res://source/resources/materials/material_surface.gd
 Resource

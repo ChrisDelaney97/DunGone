@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" script_class="MaterialSurface" format=3 uid="uid://bdv1na6n8qqaf"]
+
+[ext_resource type="Script" uid="uid://voi35tkdg2bk" path="res://source/resources/materials/material_surface.gd" id="1_etk57"]
+[ext_resource type="Texture2D" uid="uid://dsopdwcptgxuk" path="res://assets/art/ground.png" id="1_obd5f"]
+[ext_resource type="Texture2D" uid="uid://csv33o63w7wlk" path="res://assets/art/ground_n.png" id="2_y332u"]
+
+[resource]
+albedo_color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+albedo_texture = ExtResource("1_obd5f")
+normal_enabled = true
+normal_texture = ExtResource("2_y332u")
+uv1_scale = Vector3(150, 150, 150)
+texture_filter = 0
+script = ExtResource("1_etk57")
+surface_type = 1
+metadata/_custom_type_script = "uid://voi35tkdg2bk"

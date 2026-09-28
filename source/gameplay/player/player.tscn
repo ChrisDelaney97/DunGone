@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlancny6423pa"]
 
 [ext_resource type="Script" uid="uid://dnapxus80ul3r" path="res://source/gameplay/player/player.gd" id="1_4flbx"]
+[ext_resource type="Shader" uid="uid://ba86g5rhsset8" path="res://source/shaders/shaderoverlay.gdshader" id="2_ssb23"]
 [ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/audio/random_container.gd" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/hud.tscn" id="6_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://bfemx2kp5sj5h" path="res://source/gameplay/interactions/interaction_controller.tscn" id="7_fqv3n"]
@@ -9,21 +10,32 @@
 [ext_resource type="Script" uid="uid://b35x8dsr8vfhf" path="res://source/audio/player_audio.gd" id="8_6ie23"]
 [ext_resource type="Resource" uid="uid://r8rlr74ekhww" path="res://source/gameplay/weapons/FireStaff/firestaff.tres" id="8_s8fx6"]
 [ext_resource type="PackedScene" uid="uid://bpu351pw0myyq" path="res://source/gameplay/inventory/inventory_controller.tscn" id="9_2gcdm"]
-[ext_resource type="AudioStream" uid="uid://cyfeqcnat276i" path="res://assets/audio/footsteps/Footstep_01.wav" id="9_lkhq1"]
+[ext_resource type="AudioStream" uid="uid://cyfeqcnat276i" path="res://assets/audio/footsteps/concrete/Footstep_01.wav" id="9_lkhq1"]
 [ext_resource type="PackedScene" uid="uid://t4kdeel5ewd0" path="res://source/audio/random_container.tscn" id="10_6ie23"]
-[ext_resource type="AudioStream" uid="uid://bdw3r2c2eebtb" path="res://assets/audio/footsteps/Footstep_02.wav" id="10_ghpx7"]
-[ext_resource type="AudioStream" uid="uid://dighj0fx3vew7" path="res://assets/audio/footsteps/Footstep_03.wav" id="11_mvhmi"]
-[ext_resource type="AudioStream" uid="uid://7t56t13kxupa" path="res://assets/audio/footsteps/Footstep_04.wav" id="12_j2eqb"]
-[ext_resource type="AudioStream" uid="uid://bhxuvg768wb6v" path="res://assets/audio/footsteps/Footstep_05.wav" id="13_ld57f"]
-[ext_resource type="AudioStream" uid="uid://dgdmrps8ss2uu" path="res://assets/audio/footsteps/Footstep_06.wav" id="14_i5a1x"]
-[ext_resource type="AudioStream" uid="uid://chtbdjnlmluw2" path="res://assets/audio/footsteps/Footstep_07.wav" id="15_fqv3n"]
-[ext_resource type="AudioStream" uid="uid://bmcvto5sgmqa" path="res://assets/audio/footsteps/Footstep_08.wav" id="16_ssb23"]
-[ext_resource type="AudioStream" uid="uid://3yhfa1oq1paf" path="res://assets/audio/footsteps/Footstep_09.wav" id="17_mllds"]
-[ext_resource type="AudioStream" uid="uid://d3mn3fjraqyuj" path="res://assets/audio/footsteps/Footstep_10.wav" id="18_ghl0f"]
+[ext_resource type="AudioStream" uid="uid://bdw3r2c2eebtb" path="res://assets/audio/footsteps/concrete/Footstep_02.wav" id="12_ssb23"]
+[ext_resource type="AudioStream" uid="uid://7t56t13kxupa" path="res://assets/audio/footsteps/concrete/Footstep_04.wav" id="14_ghl0f"]
+[ext_resource type="AudioStream" uid="uid://bhxuvg768wb6v" path="res://assets/audio/footsteps/concrete/Footstep_05.wav" id="15_4wmng"]
+[ext_resource type="AudioStream" uid="uid://dgdmrps8ss2uu" path="res://assets/audio/footsteps/concrete/Footstep_06.wav" id="16_cqrl7"]
+[ext_resource type="AudioStream" uid="uid://chtbdjnlmluw2" path="res://assets/audio/footsteps/concrete/Footstep_07.wav" id="17_veync"]
+[ext_resource type="AudioStream" uid="uid://bmcvto5sgmqa" path="res://assets/audio/footsteps/concrete/Footstep_08.wav" id="18_n8hng"]
+[ext_resource type="AudioStream" uid="uid://3yhfa1oq1paf" path="res://assets/audio/footsteps/concrete/Footstep_09.wav" id="19_sdyer"]
 [ext_resource type="AudioStream" uid="uid://d3xw2huf7psml" path="res://assets/audio/footsteps/Jump_01.wav" id="20_i5a1x"]
+[ext_resource type="AudioStream" uid="uid://d3mn3fjraqyuj" path="res://assets/audio/footsteps/concrete/Footstep_10.wav" id="20_ntq5h"]
 [ext_resource type="AudioStream" uid="uid://da0hvuqyiylwd" path="res://assets/audio/footsteps/Jump_02.wav" id="21_fqv3n"]
 [ext_resource type="AudioStream" uid="uid://buscbaralghs7" path="res://assets/audio/footsteps/Land_01.wav" id="22_ssb23"]
 [ext_resource type="AudioStream" uid="uid://ca558688a6gmq" path="res://assets/audio/footsteps/Land_02.wav" id="23_mllds"]
+[ext_resource type="PackedScene" uid="uid://d38hm360a7pr" path="res://source/audio/switch_container.tscn" id="25_mllds"]
+[ext_resource type="AudioStream" uid="uid://ds1cb6jinr3mr" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_01.wav" id="26_xfowu"]
+[ext_resource type="AudioStream" uid="uid://44u35e4tpi7j" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_02.wav" id="27_ffidw"]
+[ext_resource type="AudioStream" uid="uid://dx8x0ftj5h1x" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_03.wav" id="28_plau3"]
+[ext_resource type="AudioStream" uid="uid://cjoam2y4f1qji" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_04.wav" id="29_hgbot"]
+[ext_resource type="AudioStream" uid="uid://ciyxx3nr6qqoq" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_05.wav" id="30_06mad"]
+[ext_resource type="AudioStream" uid="uid://c3cjenl6cpokf" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_06.wav" id="31_5ttu3"]
+[ext_resource type="AudioStream" uid="uid://16m18utnqr0r" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_07.wav" id="32_myrfx"]
+[ext_resource type="AudioStream" uid="uid://dxgtk04g58pp1" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_09.wav" id="33_8ka1y"]
+[ext_resource type="AudioStream" uid="uid://d28qgfy5mgrv1" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_10.wav" id="34_w3k26"]
+[ext_resource type="AudioStream" uid="uid://dxlaibwpe25re" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_11.wav" id="35_a2cq0"]
+[ext_resource type="AudioStream" uid="uid://bnsg186jtsio3" path="res://assets/audio/footsteps/dirt/Fol_Foot_SurfaceLayer_Walk_Dirt_12.wav" id="36_3woax"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -31,8 +43,23 @@
 radius = 0.4975
 height = 0.995
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mllds"]
+render_priority = 0
+shader = ExtResource("2_ssb23")
+shader_parameter/pixel_size = 1.0
+shader_parameter/levels = 0.0
+shader_parameter/gamma = Vector2(0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fqv3n"]
+material = SubResource("ShaderMaterial_mllds")
+flip_faces = true
+size = Vector2(2, 2)
+
 [node name="Player" type="CharacterBody3D" unique_id=1836785606]
 script = ExtResource("1_4flbx")
+
+[node name="HUD" parent="." unique_id=727334977 instance=ExtResource("6_2hs0m")]
+unique_name_in_owner = true
 
 [node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=1216438824]
 unique_name_in_owner = true
@@ -55,11 +82,17 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 fov = 90.0
 
+[node name="ShaderOverlay" type="MeshInstance3D" parent="Head/Eyes/Camera" unique_id=888055443]
+unique_name_in_owner = true
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_fqv3n")
+
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Eyes/Camera" unique_id=658507337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20000005, 0.1)
 light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
-spot_range = 7.0
-spot_angle = 52.89
+spot_range = 15.0
+spot_angle = 70.0
 
 [node name="InteractionRaycast" type="RayCast3D" parent="Head/Eyes/Camera" unique_id=473589688]
 unique_name_in_owner = true
@@ -73,11 +106,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.05143386, 1.6449437, 0.51605475)
 
-[node name="HUD" parent="." unique_id=727334977 instance=ExtResource("6_2hs0m")]
-unique_name_in_owner = true
-
 [node name="StaminaTimer" type="Timer" parent="." unique_id=1913324125]
-wait_time = 1.5
+wait_time = 1.2999999999999998
 
 [node name="Components" type="Node" parent="." unique_id=1750627188]
 
@@ -105,37 +135,66 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 target_position = Vector3(0, 2, 0)
 
+[node name="GroundCheck" type="RayCast3D" parent="." unique_id=1826895287]
+unique_name_in_owner = true
+
 [node name="AudioManager" type="Node3D" parent="." unique_id=807066735]
 unique_name_in_owner = true
 script = ExtResource("8_6ie23")
 
-[node name="Footstep" parent="AudioManager" unique_id=125268194 instance=ExtResource("10_6ie23")]
-panning_strength = 0.2
-volume_min = 0.5
-volume_max = 0.7
-pitch_min = 0.95
-pitch_max = 1.05
-audio_streams = Array[AudioStream]([ExtResource("9_lkhq1"), ExtResource("10_ghpx7"), ExtResource("11_mvhmi"), ExtResource("12_j2eqb"), ExtResource("13_ld57f"), ExtResource("14_i5a1x"), ExtResource("15_fqv3n"), ExtResource("16_ssb23"), ExtResource("17_mllds"), ExtResource("18_ghl0f")])
-
 [node name="Jump" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1383491902]
+attenuation_model = 3
 panning_strength = 0.2
+bus = &"SFX"
 script = ExtResource("3_sweqy")
-volume_min = 0.5
-volume_max = 0.6
+volume_min = 0.6
+volume_max = 0.82
 pitch_min = 0.95
 pitch_max = 1.05
 audio_streams = Array[AudioStream]([ExtResource("20_i5a1x"), ExtResource("21_fqv3n")])
 metadata/_custom_type_script = "uid://c5ajbgim51orn"
 
 [node name="Land" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1219786011]
+attenuation_model = 3
 panning_strength = 0.2
+bus = &"SFX"
 script = ExtResource("3_sweqy")
-volume_min = 0.2
-volume_max = 0.3
+volume_min = 0.55
+volume_max = 0.78
 pitch_min = 0.95
 pitch_max = 1.05
 audio_streams = Array[AudioStream]([ExtResource("22_ssb23"), ExtResource("23_mllds")])
 metadata/_custom_type_script = "uid://c5ajbgim51orn"
+
+[node name="FootstepSwitchContainer" parent="AudioManager" unique_id=71178720 node_paths=PackedStringArray("sounds") instance=ExtResource("25_mllds")]
+unique_name_in_owner = true
+default_condition = "Concrete"
+conditions = Array[String](["Concrete", "Dirt"])
+sounds = [NodePath("FootstepDirt"), NodePath("FootstepConcrete")]
+
+[node name="FootstepDirt" parent="AudioManager/FootstepSwitchContainer" unique_id=734830554 instance=ExtResource("10_6ie23")]
+attenuation_model = 3
+max_polyphony = 2
+panning_strength = 0.2
+bus = &"SFX"
+volume_min = 0.32
+volume_max = 0.46
+pitch_min = 0.95
+pitch_max = 1.05
+condition = "Dirt"
+audio_streams = Array[AudioStream]([ExtResource("26_xfowu"), ExtResource("27_ffidw"), ExtResource("28_plau3"), ExtResource("29_hgbot"), ExtResource("30_06mad"), ExtResource("31_5ttu3"), ExtResource("32_myrfx"), ExtResource("33_8ka1y"), ExtResource("34_w3k26"), ExtResource("35_a2cq0"), ExtResource("36_3woax")])
+
+[node name="FootstepConcrete" parent="AudioManager/FootstepSwitchContainer" unique_id=125268194 instance=ExtResource("10_6ie23")]
+attenuation_model = 3
+max_polyphony = 2
+panning_strength = 0.2
+bus = &"SFX"
+volume_min = 0.59
+volume_max = 0.85
+pitch_min = 0.95
+pitch_max = 1.05
+condition = "Concrete"
+audio_streams = Array[AudioStream]([ExtResource("9_lkhq1"), ExtResource("12_ssb23"), ExtResource("14_ghl0f"), ExtResource("15_4wmng"), ExtResource("16_cqrl7"), ExtResource("17_veync"), ExtResource("18_n8hng"), ExtResource("19_sdyer"), ExtResource("20_ntq5h")])
 
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="Components/WeaponController/PrimaryCooldown" to="Components/WeaponController" method="_on_primary_cooldown_timeout"]

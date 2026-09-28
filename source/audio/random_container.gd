@@ -1,3 +1,4 @@
+@icon("uid://5v7musd5lt0g")
 extends AudioStreamPlayer3D
 class_name RandomContainer
 
@@ -6,6 +7,7 @@ class_name RandomContainer
 @export_range(0.0, 1.0, 0.01) var volume_max: float = 1.0
 @export_range(0.0, 1.0, 0.01) var pitch_min: float = 1.0
 @export_range(1.0, 2.0, 0.01) var pitch_max: float = 1.0
+@export var condition: String
 @export var audio_streams: Array[AudioStream] = []
 
 var rng = RandomNumberGenerator.new()

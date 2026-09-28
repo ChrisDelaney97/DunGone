@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://baueg3qwgs4b3"]
 
-[ext_resource type="Material" uid="uid://8dkcl37e2yro" path="res://source/resources/materials/mat_dirt.tres" id="1_oj3tl"]
+[ext_resource type="Material" uid="uid://8dkcl37e2yro" path="res://source/resources/materials/mat_dirt_old.tres" id="1_oj3tl"]
 
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ryoud"]
