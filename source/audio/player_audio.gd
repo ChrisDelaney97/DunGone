@@ -8,7 +8,9 @@ class_name AudioManager_Player
 @onready var ground_check: RayCast3D = %GroundCheck
 
 func play_footstep():
-	if ground_check.get_collider().is_in_group("ground"):
+	if ground_check.get_collider() == null:
+		return
+	elif ground_check.get_collider().is_in_group("ground"):
 		var current_ground_mat = ground_check.get_collider().get_parent().get_active_material(0)
 		var current_ground_type = current_ground_mat.surface_type
 		var current_ground = current_ground_mat.SurfaceType.find_key(current_ground_type)

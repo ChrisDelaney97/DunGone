@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dk7vhw5s8l31b"]
+
+[ext_resource type="Script" uid="uid://bq34jkodu6643" path="res://source/gameplay/inventory/item_data.gd" id="1_ftgon"]
+
+[node name="ItemData" type="Node" unique_id=1503323214]
+script = ExtResource("1_ftgon")

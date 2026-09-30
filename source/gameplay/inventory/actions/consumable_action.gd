@@ -1,5 +1,5 @@
 extends ActionData
-class_name ConsumableData
+class_name ConsumableAction
 
 @export var modifier_name : String
 @export var modifier_value : int

@@ -11,9 +11,9 @@ class_name Player
 @onready var shader_overlay: MeshInstance3D = %ShaderOverlay
 @onready var inventory_controller: Node = %InventoryController
 
-@onready var health_bar: ProgressBar = %HUD.get_node("VBoxContainer/HealthBar")
-@onready var stamina_bar: ProgressBar = %HUD.get_node("VBoxContainer/StaminaBar")
-@onready var mana_bar: ProgressBar = %HUD.get_node("VBoxContainer/ManaBar")
+@onready var health_bar: ProgressBar = %GUI.find_child("HealthBar")
+@onready var stamina_bar: ProgressBar = %GUI.find_child("StaminaBar")
+@onready var mana_bar: ProgressBar = %GUI.find_child("ManaBar")
 @onready var cast_spawn: Node3D = $CastSpawn
 
 var lerp_speed: float = 10.0
@@ -122,7 +122,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	input_dir = Input.get_vector("left", "right", "forward", "back")
-	%GroundCheck.position = Vector3(input_dir.x, 0, input_dir.y) # Move ground surface check in front of where player is moving
+	# %GroundCheck.position = Vector3(input_dir.x, 0, input_dir.y) # Move ground surface check in front of where player is moving
 	direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
 	if direction and !inventory_open:
 		velocity.x = direction.x * current_speed

@@ -3,8 +3,8 @@ class_name WeaponController
 
 @onready var primary_cooldown: Timer = $PrimaryCooldown
 @onready var secondary_cooldown: Timer = $SecondaryCooldown
-@onready var primary_cooldown_bar: Control = %HUD.get_node("PrimaryCooldownBar")
-@onready var secondary_cooldown_bar: Control = %HUD.get_node("SecondaryCooldownBar")
+@onready var primary_cooldown_bar: Control = %GUI.find_child("PrimaryCooldownBar")
+@onready var secondary_cooldown_bar: Control = %GUI.find_child("SecondaryCooldownBar")
 
 @export var player: Player
 @export var primary_weapon: Weapon
@@ -57,13 +57,13 @@ func _on_secondary_cooldown_timeout() -> void:
 
 func primary_action():
 	if current_weapon:
-		current_weapon.primary_action(player, current_weapon_anim, current_weapon_cast_spawn)
+		current_weapon.primary_action(player, current_weapon_anim)
 		primary_cooldown_ready = false
 		primary_cooldown.start(current_weapon.primary_action_cooldown)
 	
 func secondary_action():
 	if current_weapon:
-		current_weapon.secondary_action(player, current_weapon_anim, current_weapon_cast_spawn)
+		current_weapon.secondary_action(player, current_weapon_anim)
 		secondary_cooldown_ready = false
 		secondary_cooldown.start(current_weapon.secondary_action_cooldown)
 

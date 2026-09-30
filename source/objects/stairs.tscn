@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dm4fgpsj4dcww"]
+
+[ext_resource type="Texture2D" uid="uid://cr1xgnswe84sx" path="res://assets/art/kenney_prototype-textures/Dark/texture_13.png" id="1_vcsvq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vcsvq"]
+points = PackedVector3Array(0, 0, 0.5, -2, 0, 0.5, 0, 3.5, 4, -2, 3.5, 4, 0, 4, 4, -2, 4, 4, 0, 4, 3.5, -2, 4, 3.5, 0, 0, -0.5, -2, 0, -0.5, 0, 0.5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fw01d"]
+albedo_texture = ExtResource("1_vcsvq")
+uv1_triplanar = true
+
+[node name="Stairs" type="Node3D" unique_id=1428951319]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=756182669]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=3896049]
+shape = SubResource("ConvexPolygonShape3D_vcsvq")
+
+[node name="Wall13" type="CSGBox3D" parent="." unique_id=1174800622]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.25, 0.25, 1)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")
+
+[node name="Wall14" type="CSGBox3D" parent="." unique_id=656346270]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.75, 0.75, 1)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")
+
+[node name="Wall15" type="CSGBox3D" parent="." unique_id=2141837971]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.25, 1.25, 0.99999994)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")
+
+[node name="Wall16" type="CSGBox3D" parent="." unique_id=11039925]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.75, 1.75, 1)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")
+
+[node name="Wall17" type="CSGBox3D" parent="." unique_id=16888383]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.25, 1)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")
+
+[node name="Wall18" type="CSGBox3D" parent="." unique_id=770509898]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.75, 2.75, 1)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")
+
+[node name="Wall19" type="CSGBox3D" parent="." unique_id=721070789]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.25, 3.25, 1)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")
+
+[node name="Wall20" type="CSGBox3D" parent="." unique_id=1673241652]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 3.75, 0.99999994)
+size = Vector3(2, 0.5, 0.5)
+material = SubResource("StandardMaterial3D_fw01d")

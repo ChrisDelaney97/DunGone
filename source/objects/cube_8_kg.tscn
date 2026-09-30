@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dp3wtec8moi1q"]
+
+[ext_resource type="Texture2D" uid="uid://bv6lqj487o40" path="res://assets/art/kenney_prototype-textures/Green/texture_01.png" id="1_ph7m0"]
+[ext_resource type="PackedScene" uid="uid://daf5flrjo4irj" path="res://source/gameplay/interactions/interaction_component.tscn" id="2_dvqmp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jb4nj"]
+albedo_texture = ExtResource("1_ph7m0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ts6oa"]
+material = SubResource("StandardMaterial3D_jb4nj")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gis6h"]
+size = Vector3(2, 2, 2)
+
+[node name="Cube_8kg" type="RigidBody3D" unique_id=946136047]
+mass = 8.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1176782498]
+mesh = SubResource("BoxMesh_ts6oa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=916936674]
+shape = SubResource("BoxShape3D_gis6h")
+
+[node name="InteractionComponent" parent="." unique_id=1838775594 node_paths=PackedStringArray("object_ref") instance=ExtResource("2_dvqmp")]
+object_ref = NodePath("..")

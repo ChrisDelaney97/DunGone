@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://jc5biioamtkv" path="res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Wizard_Staff.fbx" id="1_3lbyb"]
 [ext_resource type="Script" uid="uid://css728ibtlhik" path="res://source/gameplay/weapons/FireStaff/firestaff.gd" id="2_4oynd"]
-[ext_resource type="Animation" uid="uid://d4gtm2n8h8s64" path="res://anims/equip.res" id="3_n63qh"]
-[ext_resource type="Animation" uid="uid://dq5y3kiinidxd" path="res://anims/idle.res" id="4_wag3l"]
+[ext_resource type="Animation" uid="uid://d4gtm2n8h8s64" path="res://assets/anims/equip.res" id="3_n63qh"]
+[ext_resource type="Animation" uid="uid://dq5y3kiinidxd" path="res://assets/anims/idle.res" id="4_wag3l"]
 
 [sub_resource type="Animation" id="Animation_s0hhn"]
 length = 0.001

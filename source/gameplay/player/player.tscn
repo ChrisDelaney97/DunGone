@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dnapxus80ul3r" path="res://source/gameplay/player/player.gd" id="1_4flbx"]
 [ext_resource type="Shader" uid="uid://ba86g5rhsset8" path="res://source/shaders/shaderoverlay.gdshader" id="2_ssb23"]
 [ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/audio/random_container.gd" id="3_sweqy"]
-[ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/hud.tscn" id="6_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/gui.tscn" id="6_2hs0m"]
 [ext_resource type="Resource" uid="uid://shsnimrfcjxy" path="res://source/gameplay/weapons/Dagger/dagger.tres" id="6_xfowu"]
 [ext_resource type="PackedScene" uid="uid://bfemx2kp5sj5h" path="res://source/gameplay/interactions/interaction_controller.tscn" id="7_fqv3n"]
 [ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="7_s8fx6"]
@@ -69,9 +69,10 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [node name="Player" type="CharacterBody3D" unique_id=1836785606]
+floor_constant_speed = true
 script = ExtResource("1_4flbx")
 
-[node name="HUD" parent="." unique_id=727334977 instance=ExtResource("6_2hs0m")]
+[node name="GUI" parent="." unique_id=727334977 instance=ExtResource("6_2hs0m")]
 unique_name_in_owner = true
 
 [node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=1216438824]
@@ -107,8 +108,9 @@ mesh = SubResource("QuadMesh_fqv3n")
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Eyes/Camera" unique_id=658507337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20000005, 0.1)
 light_color = Color(0.6862745, 0.627451, 0.5568628, 1)
+light_energy = 1.5
 spot_range = 15.0
-spot_angle = 70.0
+spot_angle = 60.0
 
 [node name="InteractionRaycast" type="RayCast3D" parent="Head/Eyes/Camera" unique_id=473589688]
 unique_name_in_owner = true
@@ -123,7 +125,7 @@ unique_name_in_owner = true
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.05143386, 1.6449437, 0.51605475)
 
 [node name="StaminaTimer" type="Timer" parent="." unique_id=1913324125]
-wait_time = 1.2999999999999998
+wait_time = 1.15
 
 [node name="Components" type="Node" parent="." unique_id=1750627188]
 
@@ -230,3 +232,5 @@ audio_streams = Array[AudioStream]([ExtResource("45_i1ra4"), ExtResource("46_d6f
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
 [connection signal="timeout" from="Components/WeaponController/PrimaryCooldown" to="Components/WeaponController" method="_on_primary_cooldown_timeout"]
 [connection signal="timeout" from="Components/WeaponController/SecondaryCooldown" to="Components/WeaponController" method="_on_secondary_cooldown_timeout"]
+
+[editable path="GUI"]

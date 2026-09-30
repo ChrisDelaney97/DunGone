@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dl0dutaqc4p7y"]
+
+[ext_resource type="Texture2D" uid="uid://cr1xgnswe84sx" path="res://assets/art/kenney_prototype-textures/Dark/texture_13.png" id="1_smi42"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1epul"]
+albedo_texture = ExtResource("1_smi42")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vecw1"]
+size = Vector3(0.2, 4.5, 1.2)
+
+[node name="Ladder" type="Node3D" unique_id=446508401]
+
+[node name="Wall13" type="CSGBox3D" parent="." unique_id=689712141]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.09999995, 2.25, 0.10000003)
+size = Vector3(0.2, 4.5, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="Wall21" type="CSGBox3D" parent="." unique_id=1948042209]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.09999995, 2.25, 1.1)
+size = Vector3(0.2, 4.5, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="Wall14" type="CSGBox3D" parent="." unique_id=1279593398]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.099999964, 0.4, 0.6000001)
+size = Vector3(0.8, 0.2, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="Wall22" type="CSGBox3D" parent="." unique_id=1569486663]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.099999964, 1.1, 0.6000001)
+size = Vector3(0.8, 0.2, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="Wall23" type="CSGBox3D" parent="." unique_id=767189450]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.099999964, 1.8, 0.6000001)
+size = Vector3(0.8, 0.2, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="Wall24" type="CSGBox3D" parent="." unique_id=325046753]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.099999964, 2.5, 0.6000001)
+size = Vector3(0.8, 0.2, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="Wall25" type="CSGBox3D" parent="." unique_id=1059095164]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.099999964, 3.2, 0.6000001)
+size = Vector3(0.8, 0.2, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="Wall26" type="CSGBox3D" parent="." unique_id=2134808817]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.099999964, 3.9, 0.6000001)
+size = Vector3(0.8, 0.2, 0.2)
+material = SubResource("StandardMaterial3D_1epul")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1828795316]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1586074284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999994, 2.25, 0.6)
+shape = SubResource("BoxShape3D_vecw1")

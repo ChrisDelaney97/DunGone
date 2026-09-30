@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxo53k2wukrjk"]
 
-[ext_resource type="Texture2D" uid="uid://6uo5psc65vvr" path="res://assets/art/circle progress bar/progress-bar-circle.png" id="1_x8fsv"]
+[ext_resource type="Texture2D" uid="uid://6uo5psc65vvr" path="res://assets/art/circle progress bar/progress-bar-circle.png" id="1_r0nnw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcryv"]
 content_margin_left = 0.0
@@ -62,7 +62,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[node name="HUD" type="Control" unique_id=727334977]
+[node name="GUI" type="Control" unique_id=727334977]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,46 +70,97 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="." unique_id=881939378]
+[node name="Reticle" type="CanvasLayer" parent="." unique_id=114599769]
+
+[node name="Control" type="Control" parent="Reticle" unique_id=522963835]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HighlightReticle" type="Panel" parent="Reticle/Control" unique_id=2122527701]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.7853982
+rotation = 0.78365284
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_mcryv")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1569356455]
+[node name="InteractReticle" type="Panel" parent="Reticle/Control" unique_id=1640429983]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = 1.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcryv")
+
+[node name="DefaultReticle" type="ColorRect" parent="Reticle/Control" unique_id=1569356455]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.78365284
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(1, 1, 1, 0.39215687)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=955955407]
+[node name="Panel" type="Panel" parent="Reticle/Control/DefaultReticle" unique_id=881939378]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0017453292
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_mcryv")
+
+[node name="StatBars" type="CanvasLayer" parent="." unique_id=477518058]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatBars" unique_id=955955407]
 offset_right = 196.0
 offset_bottom = 36.0
 
-[node name="HealthBar" type="ProgressBar" parent="VBoxContainer" unique_id=638441056]
+[node name="HealthBar" type="ProgressBar" parent="StatBars/VBoxContainer" unique_id=638441056]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -118,7 +169,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_n2snw")
 step = 0.1
 show_percentage = false
 
-[node name="StaminaBar" type="ProgressBar" parent="VBoxContainer" unique_id=1983555804]
+[node name="StaminaBar" type="ProgressBar" parent="StatBars/VBoxContainer" unique_id=1983555804]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -127,7 +178,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_37p78")
 step = 0.1
 show_percentage = false
 
-[node name="ManaBar" type="ProgressBar" parent="VBoxContainer" unique_id=621269680]
+[node name="ManaBar" type="ProgressBar" parent="StatBars/VBoxContainer" unique_id=621269680]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -136,10 +187,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_64ctp")
 step = 0.1
 show_percentage = false
 
-[node name="PrimaryCooldownBar" type="TextureProgressBar" parent="." unique_id=1540159129]
+[node name="CooldownBars" type="CanvasLayer" parent="." unique_id=1881685005]
+
+[node name="PrimaryCooldownBar" type="TextureProgressBar" parent="CooldownBars" unique_id=1540159129]
 unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -152,15 +204,14 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 value = 100.0
 fill_mode = 4
-texture_under = ExtResource("1_x8fsv")
-texture_progress = ExtResource("1_x8fsv")
+texture_under = ExtResource("1_r0nnw")
+texture_progress = ExtResource("1_r0nnw")
 tint_under = Color(0.39308554, 0.3930855, 0.39308548, 1)
 tint_progress = Color(2.4065375e-07, 0.54629093, 0.17854235, 1)
 
-[node name="SecondaryCooldownBar" type="TextureProgressBar" parent="." unique_id=1212071818]
+[node name="SecondaryCooldownBar" type="TextureProgressBar" parent="CooldownBars" unique_id=1212071818]
 unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -174,32 +225,34 @@ size_flags_horizontal = 10
 size_flags_vertical = 8
 value = 100.0
 fill_mode = 4
-texture_under = ExtResource("1_x8fsv")
-texture_progress = ExtResource("1_x8fsv")
+texture_under = ExtResource("1_r0nnw")
+texture_progress = ExtResource("1_r0nnw")
 tint_under = Color(0.39308554, 0.3930855, 0.39308548, 1)
 tint_progress = Color(2.4065375e-07, 0.54629093, 0.17854235, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=912691143]
-layout_mode = 1
+[node name="Controls" type="CanvasLayer" parent="." unique_id=1450342349]
+
+[node name="MarginContainer" type="MarginContainer" parent="Controls" unique_id=912691143]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -181.0
-offset_bottom = 157.0
+offset_bottom = 173.0
 grow_horizontal = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="MarginContainer" unique_id=370758629]
+[node name="Label" type="Label" parent="Controls/MarginContainer" unique_id=370758629]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 16
 text = "WASD:  Move
 SHIFT: Sprint
 CTRL/C: Crouch
 LMB: Primary Action
 RMB: Secondary Action
+MMB: Interact
 1: Equip Primary
 2: Equip Secondary
 TAB: Swap Weapon"

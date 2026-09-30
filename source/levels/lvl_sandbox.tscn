@@ -12,6 +12,13 @@
 [ext_resource type="Script" uid="uid://voi35tkdg2bk" path="res://source/resources/materials/material_surface.gd" id="5_o65tj"]
 [ext_resource type="Material" uid="uid://df351upgxdbak" path="res://source/resources/materials/mat_water.tres" id="6_ocu6a"]
 [ext_resource type="Texture2D" uid="uid://dq40l11aj38wt" path="res://assets/art/smoke_01.png" id="12_lt7mx"]
+[ext_resource type="PackedScene" uid="uid://dm4fgpsj4dcww" path="res://source/objects/stairs.tscn" id="13_fhjce"]
+[ext_resource type="PackedScene" uid="uid://dl0dutaqc4p7y" path="res://source/objects/ladder.tscn" id="14_ajfqw"]
+[ext_resource type="PackedScene" uid="uid://ciwu80pjwpmen" path="res://source/objects/cube_1_kg.tscn" id="15_pb4ga"]
+[ext_resource type="PackedScene" uid="uid://c56nvvmqd0iso" path="res://source/objects/cube_3_kg.tscn" id="16_exm1q"]
+[ext_resource type="PackedScene" uid="uid://dp3wtec8moi1q" path="res://source/objects/cube_8_kg.tscn" id="17_u8wnc"]
+[ext_resource type="PackedScene" uid="uid://bfbk37t0w2qp2" path="res://source/objects/consumables/health_potion/health_potion.tscn" id="18_o4sc6"]
+[ext_resource type="PackedScene" uid="uid://8ociunq2bdbk" path="res://source/objects/consumables/mana_potion/mana_potion.tscn" id="19_we56l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8rgqm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,17 +43,38 @@ fog_sky_affect = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fhbj8"]
 material = ExtResource("3_d837r")
-size = Vector2(10, 10)
+size = Vector2(5, 5)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d837r"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u8wnc"]
+data = PackedVector3Array(2.5, 0, 2.5, -2.5, 0, 2.5, 2.5, 0, -2.5, -2.5, 0, 2.5, -2.5, 0, -2.5, 2.5, 0, -2.5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ocu6a"]
 material = ExtResource("4_o65tj")
-size = Vector2(10, 10)
+size = Vector2(5, 5)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o65tj"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u8wnc"]
+load_path = "res://.godot/imported/ground.png-22303ba8c49761f4883e125eb68247ac.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o4sc6"]
+load_path = "res://.godot/imported/ground_n.png-53ce9439e884331fec28a98e0da12aba.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we56l"]
+albedo_color = Color(0.4189017, 0.4189017, 0.4189017, 1)
+albedo_texture = SubResource("CompressedTexture2D_u8wnc")
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_o4sc6")
+uv1_scale = Vector3(5, 5, 5)
+texture_filter = 0
+script = ExtResource("5_o65tj")
+surface_type = 1
+metadata/_custom_type_script = "uid://voi35tkdg2bk"
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r0iud"]
+material = SubResource("StandardMaterial3D_we56l")
+size = Vector2(30, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_885na"]
+data = PackedVector3Array(15, 0, 5, -15, 0, 5, 15, 0, -5, -15, 0, 5, -15, 0, -5, 15, 0, -5)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lt7mx"]
 load_path = "res://.godot/imported/ground.png-22303ba8c49761f4883e125eb68247ac.s3tc.ctex"
@@ -67,17 +95,11 @@ metadata/_custom_type_script = "uid://voi35tkdg2bk"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pb4ga"]
 material = SubResource("StandardMaterial3D_ajfqw")
-size = Vector2(10, 10)
+size = Vector2(5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lt7mx"]
 material = ExtResource("6_ocu6a")
-size = Vector2(10, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b8lua"]
-size = Vector3(24.800001, 4, 10.400001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nbs6p"]
-size = Vector3(26, 10, 25)
+size = Vector2(5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wp20"]
 albedo_texture = ExtResource("1_b8lua")
@@ -86,6 +108,9 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rgqm"]
 albedo_texture = ExtResource("1_b8lua")
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b8lua"]
+size = Vector3(24.800001, 4, 10.400001)
 
 [sub_resource type="Curve" id="Curve_fhjce"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50085324, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -96,7 +121,7 @@ curve = SubResource("Curve_fhjce")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pb4ga"]
 lifetime_randomness = 0.31
-emission_shape_scale = Vector3(50, 10, 50)
+emission_shape_scale = Vector3(25, 10, 25)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 spread = 90.0
@@ -125,6 +150,9 @@ material = SubResource("StandardMaterial3D_exm1q")
 
 [node name="lvl_sandbox" type="Node3D" unique_id=1148681334]
 
+[node name="Player" parent="." unique_id=1836785606 instance=ExtResource("2_nbs6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6030035, 0, -0.07514906)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1243961013]
 environment = SubResource("Environment_fhbj8")
 
@@ -138,72 +166,55 @@ mesh_library = ExtResource("1_fhbj8")
 cell_size = Vector3(1, 2, 1)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(41, 2, 524288, 41, 5, 524288, 42, 5, 655360, 50, 65533, 1048576, 50, 65521, 0, 49, 65521, 0, 43, 65521, 1441792, 32, 65515, 655360, 42, 65511, 1048576, 18, 65516, 0, 10, 65517, 1441792, 3, 65521, 655360, 69, 65527, 0, 55, 12, 0, 89, 65522, 0, 85, 65520, 0, 63, 65506, 1441792, 56, 65505, 1441792, 0, 65503, 1441792, 27, 65498, 655360, 8, 65494, 0, 36, 65492, 1441792, 22, 65478, 655360, 12, 65484, 1048576, 11, 65484, 1048576, 65524, 65482, 0, 65515, 65504, 1441792, 65514, 65504, 1441792, 65495, 65472, 655360, 77, 65533, 0, 71, 14, 1441792, 80, 9, 655360)
+"cells": PackedInt32Array(18, 65516, 0, 10, 65517, 1441792, 3, 65521, 655360, 0, 65515, 0, 9, 65513, 0, 21, 65513, 0, 14, 65519, 0, 22, 65522, 0, 22, 65527, 0)
 }
 script = ExtResource("2_d837r")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="GroundDirt" type="MeshInstance3D" parent="." unique_id=2087381230]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.02, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.02, 9.9)
 mesh = SubResource("PlaneMesh_fhbj8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GroundDirt" unique_id=2103502232 groups=["ground"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundDirt/StaticBody3D" unique_id=1870602935]
-shape = SubResource("ConcavePolygonShape3D_d837r")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundDirt/StaticBody3D" unique_id=551425748]
+shape = SubResource("ConcavePolygonShape3D_u8wnc")
 
 [node name="GroundConcrete" type="MeshInstance3D" parent="." unique_id=349136277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.02, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.02, 4.8999996)
 mesh = SubResource("PlaneMesh_ocu6a")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GroundConcrete" unique_id=1628885684 groups=["ground"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundConcrete/StaticBody3D" unique_id=1503442625]
-shape = SubResource("ConcavePolygonShape3D_o65tj")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundConcrete/StaticBody3D" unique_id=1275132366]
+shape = SubResource("ConcavePolygonShape3D_u8wnc")
+
+[node name="GroundConcrete2" type="MeshInstance3D" parent="." unique_id=1291664026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.02, 16.5)
+mesh = SubResource("PlaneMesh_r0iud")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GroundConcrete2" unique_id=747922484 groups=["ground"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundConcrete2/StaticBody3D" unique_id=2068349269]
+shape = SubResource("ConcavePolygonShape3D_885na")
 
 [node name="GroundGrass" type="MeshInstance3D" parent="." unique_id=584898627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.02, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.02, 14.900001)
 mesh = SubResource("PlaneMesh_pb4ga")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GroundGrass" unique_id=2052269415 groups=["ground"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundGrass/StaticBody3D" unique_id=2132690831]
-shape = SubResource("ConcavePolygonShape3D_o65tj")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundGrass/StaticBody3D" unique_id=1330745098]
+shape = SubResource("ConcavePolygonShape3D_u8wnc")
 
 [node name="GroundWater" type="MeshInstance3D" parent="." unique_id=1587247817]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.02, 32)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.02, 19.9)
 mesh = SubResource("PlaneMesh_lt7mx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GroundWater" unique_id=481379966 groups=["ground"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundWater/StaticBody3D" unique_id=112584610]
-shape = SubResource("ConcavePolygonShape3D_o65tj")
-
-[node name="Player" parent="." unique_id=1836785606 instance=ExtResource("2_nbs6p")]
-
-[node name="Area3D" type="Area3D" parent="." unique_id=1430399661]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.19654, -1.9073486e-06, 41.33449)
-audio_bus_override = true
-audio_bus_name = &"SFX"
-reverb_bus_enabled = true
-reverb_bus_name = &"SmallRoomReverb"
-reverb_bus_amount = 0.15
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1493842565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5000014, 1.95, -0.9500003)
-shape = SubResource("BoxShape3D_b8lua")
-
-[node name="Area3D2" type="Area3D" parent="." unique_id=119809766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.80159, 0, 47.04885)
-audio_bus_override = true
-audio_bus_name = &"SFX"
-reverb_bus_enabled = true
-reverb_bus_name = &"LargeRoomReverb"
-reverb_bus_amount = 0.15
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=1053486274]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3999996, 5, -3.5)
-shape = SubResource("BoxShape3D_nbs6p")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundWater/StaticBody3D" unique_id=1257619566]
+shape = SubResource("ConcavePolygonShape3D_u8wnc")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1079575924]
 stream = ExtResource("3_nbs6p")
@@ -219,113 +230,121 @@ bus = &"SFX"
 
 [node name="Buildings" type="Node" parent="." unique_id=1292412172]
 
-[node name="Floor3" type="CSGBox3D" parent="Buildings" unique_id=886555947]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.20159, 9.5, 43.54885)
+[node name="Floor4" type="CSGBox3D" parent="Buildings" unique_id=1649966953]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, 0)
 use_collision = true
-size = Vector3(26, 1, 25)
+size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_7wp20")
 
-[node name="Wall3" type="CSGBox3D" parent="Buildings" unique_id=1795772161]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 52.70159, 4.5, 43.54885)
+[node name="Wall12" type="CSGBox3D" parent="Buildings" unique_id=448397057]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 1.5, 22)
 use_collision = true
-size = Vector3(25, 9, 1)
+size = Vector3(25, 3, 1)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall4" type="CSGBox3D" parent="Buildings" unique_id=2129147369]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.701591, 4.5, 43.54885)
-use_collision = true
-size = Vector3(25, 9, 1)
-material = SubResource("StandardMaterial3D_8rgqm")
+[node name="Area3D" type="Area3D" parent="Buildings/Wall12" unique_id=1430399661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -1.5, 6.499998)
+audio_bus_override = true
+audio_bus_name = &"SFX"
+reverb_bus_enabled = true
+reverb_bus_name = &"SmallRoomReverb"
+reverb_bus_amount = 0.2
 
-[node name="Wall5" type="CSGBox3D" parent="Buildings" unique_id=2099239331]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 40.20159, 4.5, 55.54885)
-use_collision = true
-size = Vector3(24, 9, 1)
-material = SubResource("StandardMaterial3D_8rgqm")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buildings/Wall12/Area3D" unique_id=1493842565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5000014, 1.95, -0.9500003)
+shape = SubResource("BoxShape3D_b8lua")
 
-[node name="Floor2" type="CSGBox3D" parent="Buildings" unique_id=413413648]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19.19654, 3.499998, 43.83449)
+[node name="Floor2" type="CSGBox3D" parent="Buildings/Wall12" unique_id=413413648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5.499998)
 use_collision = true
 size = Vector3(25, 1, 12)
 material = SubResource("StandardMaterial3D_7wp20")
 
-[node name="Floor4" type="CSGBox3D" parent="Buildings" unique_id=1649966953]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, 0)
-use_collision = true
-size = Vector3(300, 1, 300)
-material = SubResource("StandardMaterial3D_7wp20")
-
-[node name="Wall" type="CSGBox3D" parent="Buildings" unique_id=763183749]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.69654, 1.4999981, 43.83449)
+[node name="Wall" type="CSGBox3D" parent="Buildings/Wall12" unique_id=763183749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.999998)
 use_collision = true
 size = Vector3(25, 3, 1)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall6" type="CSGBox3D" parent="Buildings" unique_id=1376396522]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.19654, 1.4999981, 48.83449)
+[node name="Wall6" type="CSGBox3D" parent="Buildings/Wall12" unique_id=1376396522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 8.499998)
 use_collision = true
 size = Vector3(1, 3, 4)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall10" type="CSGBox3D" parent="Buildings" unique_id=1250633879]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.69654, 0.4999981, 52.33449)
+[node name="Wall10" type="CSGBox3D" parent="Buildings/Wall12" unique_id=1250633879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -1, 6.999998)
 use_collision = true
 size = Vector3(6, 1, 1)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall11" type="CSGBox3D" parent="Buildings" unique_id=1552696084]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.69654, 0.4999981, 52.33449)
+[node name="Wall11" type="CSGBox3D" parent="Buildings/Wall12" unique_id=1552696084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -1, 3.999998)
 use_collision = true
 size = Vector3(6, 1, 1)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall8" type="CSGBox3D" parent="Buildings" unique_id=94782611]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.19654, 1.4999981, 48.83449)
+[node name="Wall8" type="CSGBox3D" parent="Buildings/Wall12" unique_id=94782611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2.499998)
 use_collision = true
 size = Vector3(1, 3, 4)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall9" type="CSGBox3D" parent="Buildings" unique_id=1324932515]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.19654, 1.4999981, 55.83449)
+[node name="Wall9" type="CSGBox3D" parent="Buildings/Wall12" unique_id=1324932515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 2.499998)
 use_collision = true
 size = Vector3(1, 3, 4)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall7" type="CSGBox3D" parent="Buildings" unique_id=1944741975]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.19654, 1.4999981, 55.83449)
+[node name="Wall7" type="CSGBox3D" parent="Buildings/Wall12" unique_id=1944741975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8.499998)
 use_collision = true
 size = Vector3(1, 3, 4)
 material = SubResource("StandardMaterial3D_8rgqm")
 
-[node name="Wall2" type="CSGBox3D" parent="Buildings" unique_id=1935525033]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.696542, 1.4999981, 43.83449)
-use_collision = true
-size = Vector3(25, 3, 1)
-material = SubResource("StandardMaterial3D_8rgqm")
-
-[node name="Wall12" type="CSGBox3D" parent="Buildings" unique_id=448397057]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.696542, 1.4999981, 43.83449)
-use_collision = true
-size = Vector3(25, 3, 1)
-material = SubResource("StandardMaterial3D_8rgqm")
-
-[node name="CrouchWall" type="CSGBox3D" parent="Buildings" unique_id=454121347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.19654, 1.9999981, 52.33449)
+[node name="CrouchWall" type="CSGBox3D" parent="Buildings/Wall12" unique_id=454121347]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.492775, 0.5, 5.507223)
 use_collision = true
 size = Vector3(2, 2, 8)
 material = SubResource("StandardMaterial3D_8rgqm")
 
+[node name="CrouchWall" type="CSGBox3D" parent="Buildings" unique_id=1833695804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, 7)
+use_collision = true
+size = Vector3(1, 2, 8)
+material = SubResource("StandardMaterial3D_8rgqm")
+
 [node name="skeleton3" parent="." unique_id=441823226 instance=ExtResource("4_ar5ew")]
-transform = Transform3D(-0.97666854, 0, -0.2147523, 0, 1, 0, 0.2147523, 0, -0.97666854, 18.881588, 0, -10.666107)
+transform = Transform3D(-0.97666854, 0, -0.2147523, 0, 1, 0, 0.2147523, 0, -0.97666854, 11.299032, -1.9073486e-06, -13.6057415)
 
 [node name="skeleton2" parent="." unique_id=74691793 instance=ExtResource("4_ar5ew")]
-transform = Transform3D(-0.47751153, 0, 0.87862545, 0, 1, 0, -0.87862545, 0, -0.47751153, 30.9186, 2.3841858e-07, -5.504239)
+transform = Transform3D(-0.47751153, 0, 0.87862545, 0, 1, 0, -0.87862545, 0, -0.47751153, 19.287134, 2.3841858e-07, -10.873786)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=743394834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.349014, -0.3768015, 15.461746)
 amount = 800
 lifetime = 10.0
 preprocess = 8.0
-visibility_aabb = AABB(-56.49747, -19.859497, -52.163704, 108.652954, 34.73046, 109.93588)
+visibility_aabb = AABB(-50.84721, -40.17708, -69.2251, 104.21135, 81.89741, 131.71007)
 process_material = SubResource("ParticleProcessMaterial_pb4ga")
 draw_pass_1 = SubResource("QuadMesh_u8wnc")
+
+[node name="Stairs" parent="." unique_id=1428951319 instance=ExtResource("13_fhjce")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5, 0, 6.5)
+
+[node name="Ladder" parent="." unique_id=446508401 instance=ExtResource("14_ajfqw")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 2.2999992, 0, 10.5)
+
+[node name="Cube_1kg" parent="." unique_id=946136047 instance=ExtResource("15_pb4ga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.079675, 0.5, -5.280591)
+
+[node name="Cube_1kg2" parent="." unique_id=2073565364 instance=ExtResource("16_exm1q")]
+transform = Transform3D(0.99990946, 0, 0.013456083, 0, 1, 0, -0.013456083, 0, 0.99990946, -8.38, 0.75, -9.848)
+
+[node name="Cube_8kg" parent="." unique_id=1963924104 instance=ExtResource("17_u8wnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.442, 1, -8.554)
+
+[node name="HealthPotion" parent="." unique_id=1965648020 instance=ExtResource("18_o4sc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.143222, 1, -5.017903)
+
+[node name="ManaPotion" parent="." unique_id=14501941 instance=ExtResource("19_we56l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.857595, 1, -5.486684)
