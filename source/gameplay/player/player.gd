@@ -54,10 +54,14 @@ var last_bob_position_x: float = 0.0
 var last_bob_direction: int = 0
 
 # Stats Variables
-var health : float = 100
-var stamina : float = 100
-var mana : float = 100
+var health : float = 100.0
+var max_health : float = 100.0
+var stamina : float = 100.0
+var max_stamina : float = 100.0
+var mana : float = 100.0
+var max_mana : float = 100.0
 var stamina_recharging : bool = false
+var stamina_recharge_rate : float = 0.5
 
 # State Machine
 var player_state: PlayerState = PlayerState.IDLE_STAND
@@ -72,6 +76,9 @@ enum PlayerState {
 
 func _ready() -> void:
 	#shader_overlay.visible = true
+	health_bar.max_value = max_health
+	stamina_bar.max_value = max_stamina
+	mana_bar.max_value = max_mana
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
@@ -98,8 +105,7 @@ func _process(_delta: float) -> void:
 	health_bar.value = health
 	stamina_bar.value = stamina
 	mana_bar.value = mana
-	
-	if stamina_recharging and stamina < 100.0: stamina += 0.5
+	if stamina_recharging and stamina < max_stamina: stamina += stamina_recharge_rate
 
 func _physics_process(delta: float) -> void:
 	
@@ -207,6 +213,33 @@ func update_camera(delta: float) -> void:
 		eyes.position.x = lerp(eyes.position.x, 0.0, delta * lerp_speed)
 	
 	footsteps()
+
+func add_health(amount:float) -> bool:
+	if health == max_health: 
+		print("health full")
+		return false
+	health += amount
+	health_bar.value = health
+	if health > max_health: health = max_health
+	return true
+
+func add_stamina(amount:float) -> bool:
+	if stamina == max_stamina:
+		print("stamina full")
+		return false
+	stamina += amount
+	stamina_bar.value = stamina
+	if stamina > max_stamina: stamina = max_stamina
+	return true
+
+func add_mana(amount:float) -> bool:
+	if mana == max_mana:
+		print("mana full")
+		return false
+	mana += amount
+	mana_bar.value = mana
+	if mana > max_mana: mana = max_mana
+	return true
 
 func spend_stamina(amount:float):
 	if stamina > 0:

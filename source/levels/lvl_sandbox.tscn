@@ -346,5 +346,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.442, 1, -8.554)
 [node name="HealthPotion" parent="." unique_id=1965648020 instance=ExtResource("18_o4sc6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.143222, 1, -5.017903)
 
-[node name="ManaPotion" parent="." unique_id=14501941 instance=ExtResource("19_we56l")]
+[node name="HealthPotion2" parent="." unique_id=14501941 instance=ExtResource("18_o4sc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.226385, 1, -5.2981205)
+
+[node name="ManaPotion" parent="." unique_id=459255824 instance=ExtResource("19_we56l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.857595, 1, -5.486684)
+
+[node name="ManaPotion2" parent="." unique_id=150188953 instance=ExtResource("19_we56l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.140778, 1, -5.5059524)

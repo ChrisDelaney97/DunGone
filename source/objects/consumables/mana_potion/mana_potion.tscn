@@ -50,7 +50,7 @@ height = 0.05
 
 [sub_resource type="Resource" id="Resource_jrhi1"]
 script = ExtResource("5_itavr")
-modifier_name = "small_mana_potion"
+modifier_name = "mana_potion"
 modifier_value = 10
 metadata/_custom_type_script = "uid://8kw2vufiakkg"
 

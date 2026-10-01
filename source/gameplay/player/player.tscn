@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://ba86g5rhsset8" path="res://source/shaders/shaderoverlay.gdshader" id="2_ssb23"]
 [ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/audio/random_container.gd" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/gui.tscn" id="6_2hs0m"]
-[ext_resource type="Resource" uid="uid://shsnimrfcjxy" path="res://source/gameplay/weapons/Dagger/dagger.tres" id="6_xfowu"]
+[ext_resource type="Resource" uid="uid://r8rlr74ekhww" path="res://source/gameplay/weapons/FireStaff/firestaff.tres" id="6_i1ra4"]
 [ext_resource type="PackedScene" uid="uid://bfemx2kp5sj5h" path="res://source/gameplay/interactions/interaction_controller.tscn" id="7_fqv3n"]
 [ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="7_s8fx6"]
 [ext_resource type="Script" uid="uid://duoequxihr1ab" path="res://source/gameplay/weapons/resources/weapon_controller.gd" id="7_uv317"]
@@ -133,7 +133,7 @@ wait_time = 1.15
 script = ExtResource("7_uv317")
 player = NodePath("../..")
 primary_weapon = ExtResource("7_s8fx6")
-secondary_weapon = ExtResource("6_xfowu")
+secondary_weapon = ExtResource("6_i1ra4")
 weapon_model_parent = NodePath("../../Head")
 metadata/_custom_type_script = "uid://duoequxihr1ab"
 

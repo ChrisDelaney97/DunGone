@@ -49,7 +49,7 @@ height = 0.05
 
 [sub_resource type="Resource" id="Resource_ybs21"]
 script = ExtResource("5_qujhp")
-modifier_name = "small_health_potion"
+modifier_name = "health_potion"
 modifier_value = 10
 metadata/_custom_type_script = "uid://8kw2vufiakkg"
 
