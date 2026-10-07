@@ -35,9 +35,11 @@ func _process(_delta: float) -> void:
 					interaction_component.secondary_interact()
 					current_object = null
 					unfocus()
-			if Input.is_action_pressed("interact"):
-				if interaction_component:
+			if Input.is_action_pressed("hold"):
+				if interaction_component and interaction_component.interaction_type == 0:
 					interaction_component.interact()
+			elif Input.is_action_pressed("pickup") and interaction_component.interaction_type == interaction_component.InteractionType.ITEM:
+				interaction_component.interact()
 			else:
 				if interaction_component:
 					interaction_component.post_interact()
@@ -52,10 +54,12 @@ func _process(_delta: float) -> void:
 						return
 					last_potential_object = current_object
 					focus()
-					if Input.is_action_just_pressed("interact"):
+					if Input.is_action_just_pressed("hold"):
 						current_object = potential_object
 						interaction_component.pre_interact(hand)
-						
+					if Input.is_action_just_pressed("pickup") and interaction_component.interaction_type == interaction_component.InteractionType.ITEM:
+						current_object = potential_object
+						interaction_component.pre_interact(hand)
 						if interaction_component.interaction_type == interaction_component.InteractionType.ITEM:
 							interaction_component.connect("ItemCollected", Callable(self, "on_item_collected"))
 			else:

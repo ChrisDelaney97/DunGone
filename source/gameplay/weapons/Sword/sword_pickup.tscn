@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dweh6tdbg1e1d"]
+
+[ext_resource type="PackedScene" uid="uid://daf5flrjo4irj" path="res://source/gameplay/interactions/interaction_component.tscn" id="1_m0cc0"]
+[ext_resource type="Resource" uid="uid://bhs10dn1bl3o4" path="res://source/gameplay/weapons/Sword/sword_item_data.tres" id="3_omtk3"]
+[ext_resource type="PackedScene" uid="uid://doq6dyc1dn26v" path="res://assets/art/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios/Low Poly Weapon Pack - by Kickin It Studios.fbx_Arming_Sword.fbx" id="5_gqb3c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0cc0"]
+size = Vector3(0.083740234, 0.060546875, 1.1914063)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dw8co"]
+size = Vector3(0.2770996, 0.060546875, 0.060058594)
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=413719221]
+
+[node name="Low Poly Weapon Pack - by Kickin It Studios_fbx_Arming_Sword" parent="." unique_id=1443222571 instance=ExtResource("5_gqb3c")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1391796741]
+transform = Transform3D(0.9999961, 0, 0, 0, 0.9999896, 0, 0, 0, 0.9999905, 0, 2.6278846e-10, -0.22585449)
+shape = SubResource("BoxShape3D_m0cc0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=513236860]
+transform = Transform3D(0.9999961, 0, 0, 0, 0.9999896, 0, 0, 0, 0.9999905, 0, 2.6278846e-10, 0.07251305)
+shape = SubResource("BoxShape3D_dw8co")
+
+[node name="InteractionComponent" parent="." unique_id=1838775594 instance=ExtResource("1_m0cc0")]
+interaction_type = 1
+item_data = ExtResource("3_omtk3")

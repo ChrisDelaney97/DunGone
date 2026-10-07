@@ -5,6 +5,7 @@ class_name WeaponController
 @onready var secondary_cooldown: Timer = $SecondaryCooldown
 @onready var primary_cooldown_bar: Control = %GUI.find_child("PrimaryCooldownBar")
 @onready var secondary_cooldown_bar: Control = %GUI.find_child("SecondaryCooldownBar")
+@onready var inventory_controller: Node = %InventoryController
 
 @export var player: Player
 @export var primary_weapon: Weapon
@@ -17,18 +18,21 @@ var current_weapon_model: Node3D
 var current_weapon_anim: AnimationTree
 var current_weapon_cast_spawn: Node3D
 
+var primary_slot_selected: bool
 var current_weapon: Weapon
+var current_equip: String = "Primary"
 
 func _ready() -> void:
+	primary_slot_selected = true
 	if primary_weapon: current_weapon = primary_weapon
 	if current_weapon: spawn_weapon_model()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary_action") and primary_cooldown_ready and !player.inventory_open: primary_action()
 	if event.is_action_pressed("secondary_action") and secondary_cooldown_ready and !player.inventory_open: secondary_action()
-	if event.is_action_pressed("swap_weapon") and primary_weapon and secondary_weapon and !player.inventory_open: swap_weapon()
-	if event.is_action_pressed("equip1") and primary_weapon and !player.inventory_open: equip_weapon_1()
-	if event.is_action_pressed("equip2") and secondary_weapon and !player.inventory_open: equip_weapon_2()
+	if event.is_action_pressed("swap_weapon") and !player.inventory_open: swap_weapon()
+	if event.is_action_pressed("equip1") and !player.inventory_open: swap_to_weapon_primary()
+	if event.is_action_pressed("equip2") and !player.inventory_open: swap_to_weapon_secondary()
 
 func _process(_delta: float) -> void:
 	if !primary_cooldown.is_stopped():
@@ -40,14 +44,15 @@ func spawn_weapon_model():
 	if current_weapon_model:
 		current_weapon_model.queue_free()
 	
-	if current_weapon.model:
-		current_weapon_model = current_weapon.model.instantiate()
-		current_weapon_anim = current_weapon_model.find_child("AnimationTree")
-		current_weapon_cast_spawn = current_weapon_model.find_child("CastSpawn")
-		current_weapon_model.stats = current_weapon
-		weapon_model_parent.add_child(current_weapon_model)
-		current_weapon_model.position = current_weapon.position
-		current_weapon_anim["parameters/equip/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	if current_weapon:
+		if current_weapon.model:
+			current_weapon_model = current_weapon.model.instantiate()
+			current_weapon_anim = current_weapon_model.find_child("AnimationTree")
+			current_weapon_cast_spawn = current_weapon_model.find_child("CastSpawn")
+			current_weapon_model.stats = current_weapon
+			weapon_model_parent.add_child(current_weapon_model)
+			current_weapon_model.position = current_weapon.position
+			current_weapon_anim["parameters/equip/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
 func _on_primary_cooldown_timeout() -> void:
 	primary_cooldown_ready = true
@@ -55,30 +60,49 @@ func _on_primary_cooldown_timeout() -> void:
 func _on_secondary_cooldown_timeout() -> void:
 	secondary_cooldown_ready = true
 
-func primary_action():
+func primary_action() -> void:
 	if current_weapon:
 		current_weapon.primary_action(player, current_weapon_anim)
 		primary_cooldown_ready = false
 		primary_cooldown.start(current_weapon.primary_action_cooldown)
-	
-func secondary_action():
+
+func secondary_action() -> void:
 	if current_weapon:
 		current_weapon.secondary_action(player, current_weapon_anim)
 		secondary_cooldown_ready = false
 		secondary_cooldown.start(current_weapon.secondary_action_cooldown)
 
-func swap_weapon():
-	if primary_weapon and secondary_weapon:
-		if current_weapon == primary_weapon: current_weapon = secondary_weapon
-		elif current_weapon == secondary_weapon: current_weapon = primary_weapon
-		spawn_weapon_model()
-
-func equip_weapon_1():
-	if primary_weapon and current_weapon == secondary_weapon:
-		current_weapon = primary_weapon
-		spawn_weapon_model()
-
-func equip_weapon_2():
-	if secondary_weapon and current_weapon == primary_weapon:
+func swap_weapon() -> void:
+	if primary_slot_selected:
+		primary_slot_selected = false
 		current_weapon = secondary_weapon
-		spawn_weapon_model()
+	elif !primary_slot_selected:
+		primary_slot_selected = true
+		current_weapon = primary_weapon
+	spawn_weapon_model()
+
+func swap_to_weapon_primary() -> void:
+	if current_weapon == primary_weapon and current_weapon != null: return
+	primary_slot_selected = true
+	current_weapon = primary_weapon
+	spawn_weapon_model()
+
+func swap_to_weapon_secondary() -> void:
+	if current_weapon == secondary_weapon and current_weapon != null: return
+	primary_slot_selected = false
+	current_weapon = secondary_weapon
+	spawn_weapon_model()
+
+func equip_weapon(new_weapon:Weapon, weapon_slot: int) -> void:
+	if not (weapon_slot == 1 or weapon_slot == 2): return
+	match weapon_slot:
+		1:
+			primary_slot_selected = true
+			primary_weapon = new_weapon
+			current_weapon = primary_weapon
+			spawn_weapon_model()
+		2:
+			primary_slot_selected = false
+			secondary_weapon = new_weapon
+			current_weapon = secondary_weapon
+			spawn_weapon_model()

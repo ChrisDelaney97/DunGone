@@ -1,2 +1,2 @@
-res://source/gameplay/weapons/resources/weapon.gd
+res://source/gameplay/inventory/item_data.gd
 Resource

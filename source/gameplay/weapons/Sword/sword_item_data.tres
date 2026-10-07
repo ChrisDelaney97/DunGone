@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bhs10dn1bl3o4"]
+
+[ext_resource type="Script" uid="uid://ccwehy6j3e7im" path="res://source/gameplay/inventory/actions/equippable_action.gd" id="1_utbxg"]
+[ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="2_opw47"]
+[ext_resource type="Texture2D" uid="uid://b46mdpi1wmcvs" path="res://assets/art/sword_icon.png" id="3_rsdlh"]
+[ext_resource type="Script" uid="uid://bq34jkodu6643" path="res://source/gameplay/inventory/item_data.gd" id="4_2oeon"]
+
+[sub_resource type="Resource" id="Resource_dw8co"]
+script = ExtResource("1_utbxg")
+weapon_data = ExtResource("2_opw47")
+metadata/_custom_type_script = "uid://ccwehy6j3e7im"
+
+[resource]
+script = ExtResource("4_2oeon")
+item_name = "Sword"
+item_icon = ExtResource("3_rsdlh")
+action_data = SubResource("Resource_dw8co")
+metadata/_custom_type_script = "uid://bq34jkodu6643"

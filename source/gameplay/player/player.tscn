@@ -4,9 +4,7 @@
 [ext_resource type="Shader" uid="uid://ba86g5rhsset8" path="res://source/shaders/shaderoverlay.gdshader" id="2_ssb23"]
 [ext_resource type="Script" uid="uid://c5ajbgim51orn" path="res://source/audio/random_container.gd" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://cxo53k2wukrjk" path="res://source/ui/gui.tscn" id="6_2hs0m"]
-[ext_resource type="Resource" uid="uid://r8rlr74ekhww" path="res://source/gameplay/weapons/FireStaff/firestaff.tres" id="6_i1ra4"]
 [ext_resource type="PackedScene" uid="uid://bfemx2kp5sj5h" path="res://source/gameplay/interactions/interaction_controller.tscn" id="7_fqv3n"]
-[ext_resource type="Resource" uid="uid://cv242sx64sb4m" path="res://source/gameplay/weapons/Sword/sword.tres" id="7_s8fx6"]
 [ext_resource type="Script" uid="uid://duoequxihr1ab" path="res://source/gameplay/weapons/resources/weapon_controller.gd" id="7_uv317"]
 [ext_resource type="Script" uid="uid://b35x8dsr8vfhf" path="res://source/audio/player_audio.gd" id="8_6ie23"]
 [ext_resource type="PackedScene" uid="uid://bpu351pw0myyq" path="res://source/gameplay/inventory/inventory_controller.tscn" id="9_2gcdm"]
@@ -53,8 +51,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gcdm"]
-radius = 0.4975
-height = 0.995
+radius = 0.4
+height = 0.8056055
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mllds"]
 render_priority = 0
@@ -79,10 +77,11 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_onrkg")
+debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="CrouchingCollision" type="CollisionShape3D" parent="." unique_id=1653269037]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49731445, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4026172, 0)
 shape = SubResource("CapsuleShape3D_2gcdm")
 
 [node name="Head" type="Node3D" parent="." unique_id=736563461]
@@ -132,8 +131,6 @@ wait_time = 1.15
 [node name="WeaponController" type="Node" parent="Components" unique_id=856481468 node_paths=PackedStringArray("player", "weapon_model_parent")]
 script = ExtResource("7_uv317")
 player = NodePath("../..")
-primary_weapon = ExtResource("7_s8fx6")
-secondary_weapon = ExtResource("6_i1ra4")
 weapon_model_parent = NodePath("../../Head")
 metadata/_custom_type_script = "uid://duoequxihr1ab"
 

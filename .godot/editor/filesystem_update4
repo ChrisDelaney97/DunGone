@@ -1,10 +1,11 @@
 res://source/audio/bus.tres
-res://source/objects/cube_1_kg.tscn
+res://source/levels/lvl_sandbox.tscn
 res://assets/art/_models/tree_mesh.tres
 res://source/shaders/shaderoverlay.gdshader
-res://source/gameplay/inventory/inventory_controller.gd
-res://source/objects/consumables/health_potion/health_potion.tscn
+res://assets/art/_models/foliage_mesh.tres
+res://source/gameplay/weapons/Sword/sword_item_data.tres
+res://source/gameplay/weapons/Dagger/dagger_item_data.tres
+res://source/gameplay/weapons/FireStaff/firestaff_item_data.tres
+res://source/shaders/water.gdshader
 res://source/gameplay/player/player.tscn
-res://source/gameplay/player/player.gd
-res://source/objects/consumables/mana_potion/mana_potion.tscn
-res://source/levels/lvl_sandbox.tscn
+res://source/audio/player_audio.gd

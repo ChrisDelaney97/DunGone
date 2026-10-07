@@ -1,23 +1,49 @@
 [gd_scene format=3 uid="uid://bpu351pw0myyq"]
 
 [ext_resource type="Script" uid="uid://cr1x0vnbxys5t" path="res://source/gameplay/inventory/inventory_controller.gd" id="1_vdfha"]
+[ext_resource type="PackedScene" uid="uid://do63ydtostv3o" path="res://source/gameplay/inventory/inventory_slot.tscn" id="2_k2hox"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xltd1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2hox"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.1584723, 0.15847233, 0.15847224, 1)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i50wl"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [node name="InventoryController" type="Node" unique_id=1885242508]
 
@@ -33,27 +59,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vdfha")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/InventoryUI" unique_id=38724697]
-custom_minimum_size = Vector2(100, 100)
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/InventoryUI" unique_id=673341872]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -169.0
-offset_top = -136.0
-offset_right = 169.0
-offset_bottom = 136.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xltd1")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/InventoryUI/Panel" unique_id=673341872]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -141.0
+offset_right = 174.0
+offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 5
@@ -61,8 +77,77 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/InventoryUI/Panel/MarginContainer" unique_id=1203526805]
+[node name="ItemGrid" type="GridContainer" parent="CanvasLayer/InventoryUI/MarginContainer" unique_id=1203526805]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=688951347]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.5
+offset_top = -68.880005
+offset_right = 69.5
+offset_bottom = -6.880005
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="EquipSlot1" parent="CanvasLayer/HBoxContainer" unique_id=959030905 instance=ExtResource("2_k2hox")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EquipHighlight1" type="PanelContainer" parent="CanvasLayer/HBoxContainer/EquipSlot1" unique_id=1435204293]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 62.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k2hox")
+
+[node name="EquipSlot2" parent="CanvasLayer/HBoxContainer" unique_id=2055459203 instance=ExtResource("2_k2hox")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EquipHighlight2" type="PanelContainer" parent="CanvasLayer/HBoxContainer/EquipSlot2" unique_id=2103837396]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(62, 62)
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 62.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i50wl")
+
+[node name="Text" type="CanvasLayer" parent="." unique_id=1547680041]
+
+[node name="TextPrompt" type="Label" parent="Text" unique_id=1023767547]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -180.0
+offset_right = 20.0
+offset_bottom = -156.9997
+grow_horizontal = 2
+grow_vertical = 0
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextPromptTimer" type="Timer" parent="Text" unique_id=314846777]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Text/TextPromptTimer" to="CanvasLayer/InventoryUI" method="_on_text_prompt_timer_timeout"]

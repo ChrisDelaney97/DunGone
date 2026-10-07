@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxo53k2wukrjk"]
 
 [ext_resource type="Texture2D" uid="uid://6uo5psc65vvr" path="res://assets/art/circle progress bar/progress-bar-circle.png" id="1_r0nnw"]
+[ext_resource type="PackedScene" uid="uid://yb1ystlppi2f" path="res://source/ui/pause_menu.tscn" id="2_2lwma"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcryv"]
 content_margin_left = 0.0
@@ -252,8 +253,13 @@ SHIFT: Sprint
 CTRL/C: Crouch
 LMB: Primary Action
 RMB: Secondary Action
-MMB: Interact
+MMB: Interact/Pickup
+I: Inventory
 1: Equip Primary
 2: Equip Secondary
 TAB: Swap Weapon"
 horizontal_alignment = 2
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1546257584]
+
+[node name="PauseMenu" parent="PauseMenu" unique_id=1520704592 instance=ExtResource("2_2lwma")]

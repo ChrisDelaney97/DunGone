@@ -9,7 +9,7 @@ class_name Player
 @onready var stand_up_check: RayCast3D = %StandUpCheck
 @onready var audio: Node3D = %AudioManager
 @onready var shader_overlay: MeshInstance3D = %ShaderOverlay
-@onready var inventory_controller: Node = %InventoryController
+@onready var inventory_controller: Node = %InventoryController.find_child("InventoryUI")
 
 @onready var health_bar: ProgressBar = %GUI.find_child("HealthBar")
 @onready var stamina_bar: ProgressBar = %GUI.find_child("StaminaBar")
@@ -22,6 +22,7 @@ var lerp_speed: float = 10.0
 const WALK_SPEED: float = 4.5
 const SPRINT_SPEED: float = 7.0
 const CROUCH_SPEED: float = 1.5
+const CLIMB_SPEED: float = 3.0
 const JUMP_VELOCITY: float = 4.0
 var current_speed: float = 3.0
 var moving: bool = false
@@ -29,6 +30,8 @@ var input_dir: Vector2 = Vector2.ZERO
 var direction: Vector3 = Vector3.ZERO
 const CROUCHING_DEPTH: float = -0.9
 var is_in_air: bool
+var current_ladder: Area3D = null
+var wish_dir: Vector3 = Vector3.ZERO
 
 # Camera Variables
 var head_height: float = 1.8
@@ -71,7 +74,8 @@ enum PlayerState {
 	CROUCHING,
 	WALKING,
 	SPRINTING, 
-	AIR
+	AIR,
+	LADDER
 }
 
 func _ready() -> void:
@@ -82,24 +86,17 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseMotion:
-		#rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		#head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
-		#head.rotation.x = clamp(head.rotation.x, deg_to_rad(-85), deg_to_rad(85))
-	
-	if Input.is_action_pressed("inventory"):
-		inventory_open = true
-		inventory_controller.get_node("CanvasLayer/InventoryUI").visible = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	elif event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-85), deg_to_rad(85))
-	
-	if Input.is_action_just_released("inventory"):
-		inventory_open = false
-		inventory_controller.get_node("CanvasLayer/InventoryUI").visible = false
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if !Global.paused:
+		if Input.is_action_just_pressed("inventory"):
+			inventory_open = !inventory_open
+			inventory_controller.visible = !inventory_controller.visible
+			match inventory_open:
+				true: Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				false: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if event is InputEventMouseMotion and !inventory_open:
+			rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+			head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 
 func _process(_delta: float) -> void:
 	health_bar.value = health
@@ -109,38 +106,43 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	update_player_state()
-	update_camera(delta)
-	
-	if not is_on_floor():
-		is_in_air = true
-		if velocity.y >= 0: # when jumping
-			velocity += get_gravity() * delta
-		else: # when falling
-			velocity += get_gravity() * delta * 2.0
-	else:
-		if is_in_air == true:
-			is_in_air = false
-			audio.play_land()
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = JUMP_VELOCITY
-			audio.play_jump()
-	
 	# Get the input direction and handle the movement/deceleration.
 	input_dir = Input.get_vector("left", "right", "forward", "back")
-	# %GroundCheck.position = Vector3(input_dir.x, 0, input_dir.y) # Move ground surface check in front of where player is moving
-	direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
-	if direction and !inventory_open:
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.z = move_toward(velocity.z, 0, current_speed)
+	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)
 	
-	move_and_slide()
+	if !Global.paused:
+		if not ladder_movement():
+			update_player_state()
+			update_camera(delta)
+			
+			if not is_on_floor():
+				is_in_air = true
+				if velocity.y >= 0: # when jumping
+					velocity += get_gravity() * delta
+				else: # when falling
+					velocity += get_gravity() * delta * 2.0
+			else:
+				if is_in_air == true:
+					is_in_air = false
+					audio.play_land()
+				if Input.is_action_just_pressed("jump"):
+					velocity.y = JUMP_VELOCITY
+					audio.play_jump()
+				
+			# %GroundCheck.position = Vector3(input_dir.x, 0, input_dir.y) # Move ground surface check in front of where player is moving
+			direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * lerp_speed)
+			if direction and !inventory_open:
+				velocity.x = direction.x * current_speed
+				velocity.z = direction.z * current_speed
+			else:
+				velocity.x = move_toward(velocity.x, 0, current_speed)
+				velocity.z = move_toward(velocity.z, 0, current_speed)
+			
+		move_and_slide()
 
 func update_player_state() -> void:
 	moving = (input_dir != Vector2.ZERO)
+	#if !ladder():
 	if inventory_open:
 		player_state = PlayerState.IDLE_STAND
 		return
@@ -215,8 +217,8 @@ func update_camera(delta: float) -> void:
 	footsteps()
 
 func add_health(amount:float) -> bool:
-	if health == max_health: 
-		print("health full")
+	if health == max_health:
+		inventory_controller.show_text_prompt("HEALTH FULL")
 		return false
 	health += amount
 	health_bar.value = health
@@ -225,7 +227,7 @@ func add_health(amount:float) -> bool:
 
 func add_stamina(amount:float) -> bool:
 	if stamina == max_stamina:
-		print("stamina full")
+		inventory_controller.show_text_prompt("STAMINA FULL")
 		return false
 	stamina += amount
 	stamina_bar.value = stamina
@@ -234,7 +236,7 @@ func add_stamina(amount:float) -> bool:
 
 func add_mana(amount:float) -> bool:
 	if mana == max_mana:
-		print("mana full")
+		inventory_controller.show_text_prompt("MANA FULL")
 		return false
 	mana += amount
 	mana_bar.value = mana
@@ -277,3 +279,54 @@ func footsteps() -> void:
 	else:
 		last_bob_direction = 0
 		last_bob_position_x = head_bobbing_vector.x
+
+func ladder_movement() -> bool:
+	
+	var was_climbing_ladder := current_ladder and current_ladder.overlaps_body(self)
+	if !was_climbing_ladder:
+		current_ladder = null
+		for ladder in get_tree().get_nodes_in_group("ladder_area"):
+			if ladder.overlaps_body(self):
+				current_ladder = ladder
+				break
+	if current_ladder == null:
+		return false
+	
+	var ladder_gtransform: Transform3D = current_ladder.global_transform
+	var pos_rel_to_ladder:= ladder_gtransform.affine_inverse() * self.global_position
+	var forward_move:= Input.get_action_strength("forward") - Input.get_action_strength("back")
+	var side_move:= Input.get_action_strength("right") - Input.get_action_strength("left")
+	var ladder_forward_move:= ladder_gtransform.affine_inverse().basis * camera.global_transform.basis * Vector3(0, 0, -forward_move)
+	var ladder_side_move:= ladder_gtransform.affine_inverse().basis * camera.global_transform.basis * Vector3(side_move, 0, 0)
+	var ladder_strafe_vel: float = CLIMB_SPEED * (ladder_side_move.x + ladder_forward_move.x)
+	var ladder_climb_vel: float = CLIMB_SPEED * -ladder_side_move.z
+	var up_wish:= Vector3.UP.rotated(Vector3(1,0,0), deg_to_rad(-45)).dot(ladder_forward_move)
+	ladder_climb_vel += CLIMB_SPEED * up_wish
+	
+	var should_dismount: bool = false
+	
+	if not was_climbing_ladder:
+		var mounting_from_top = pos_rel_to_ladder.y > current_ladder.get_parent().get_node("Top").position.y
+		if mounting_from_top:
+			if ladder_climb_vel > 0: should_dismount = true
+		else:
+			if (ladder_gtransform.affine_inverse().basis * wish_dir).z >= 0: should_dismount = true
+		if abs(pos_rel_to_ladder.z) > 0.8: should_dismount = true
+	
+	if is_on_floor() and ladder_climb_vel <= 0: should_dismount = true
+	
+	if should_dismount:
+		current_ladder = null
+		return false
+	
+	if was_climbing_ladder and Input.is_action_just_pressed("jump"):
+		self.velocity = current_ladder.global_transform.basis.z * JUMP_VELOCITY * 2.0
+		current_ladder = null
+		return false
+	
+	self.velocity = ladder_gtransform.basis * Vector3(ladder_strafe_vel, ladder_climb_vel, 0)
+	self.velocity = self.velocity.limit_length(CLIMB_SPEED)
+	
+	pos_rel_to_ladder.z = 0
+	self.global_position = ladder_gtransform * pos_rel_to_ladder
+	return true

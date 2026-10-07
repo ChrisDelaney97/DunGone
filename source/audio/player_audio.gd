@@ -1,7 +1,6 @@
 extends Node3D
 class_name AudioManager_Player
 
-@onready var footstep: AudioStreamPlayer3D = $Footstep
 @onready var jump: RandomContainer = $Jump
 @onready var land: RandomContainer = $Land
 @onready var footstep_switch_container: SwitchContainer = %FootstepSwitchContainer

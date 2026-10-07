@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ctsuvqtm6hn46"]
+
+[ext_resource type="PackedScene" uid="uid://daf5flrjo4irj" path="res://source/gameplay/interactions/interaction_component.tscn" id="2_7dybr"]
+[ext_resource type="PackedScene" uid="uid://b80ug0cxu2gbh" path="res://assets/art/_models/DungunDagger.glb" id="2_pxjeq"]
+[ext_resource type="Resource" uid="uid://dwyg1r7rury1y" path="res://source/gameplay/weapons/Dagger/dagger_item_data.tres" id="3_sepqm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0cc0"]
+size = Vector3(0.05, 0.05, 0.914)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxjeq"]
+size = Vector3(0.27246094, 0.05, 0.110839844)
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=413719221]
+
+[node name="DungunDagger2" parent="." unique_id=302147750 instance=ExtResource("2_pxjeq")]
+transform = Transform3D(0.55, 0, 0, 0, -2.4041263e-08, 0.55, 0, -0.55, -2.4041263e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1391796741]
+transform = Transform3D(0.9999961, 0, 0, 0, 0.9999896, 0, 0, 0, 0.9999905, 0, 2.6278846e-10, -0.27686426)
+shape = SubResource("BoxShape3D_m0cc0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1764395211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.111572266)
+shape = SubResource("BoxShape3D_pxjeq")
+
+[node name="InteractionComponent" parent="." unique_id=1838775594 instance=ExtResource("2_7dybr")]
+interaction_type = 1
+item_data = ExtResource("3_sepqm")

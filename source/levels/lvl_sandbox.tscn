@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlancny6423pa" path="res://source/gameplay/player/player.tscn" id="2_nbs6p"]
 [ext_resource type="Material" uid="uid://klfae3ykxryv" path="res://source/resources/materials/mat_dirt.tres" id="3_d837r"]
 [ext_resource type="AudioStream" uid="uid://j1nvx62171gi" path="res://assets/audio/grimhop choon 1 Speedhouse.wav" id="3_nbs6p"]
+[ext_resource type="MeshLibrary" uid="uid://byh8gumiorwfc" path="res://assets/art/_models/foliage_mesh.tres" id="4_1lokg"]
 [ext_resource type="AudioStream" uid="uid://rlssu7hld7yi" path="res://assets/audio/Wind, Designed, Spooky Winds, Tonal, Whispers, Ghosts SND114972.wav" id="4_7wp20"]
 [ext_resource type="PackedScene" uid="uid://b58p74twhm8ws" path="res://source/gameplay/enemies/skeleton.tscn" id="4_ar5ew"]
 [ext_resource type="Material" uid="uid://bdv1na6n8qqaf" path="res://source/resources/materials/mat_concrete.tres" id="4_o65tj"]
@@ -19,6 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://dp3wtec8moi1q" path="res://source/objects/cube_8_kg.tscn" id="17_u8wnc"]
 [ext_resource type="PackedScene" uid="uid://bfbk37t0w2qp2" path="res://source/objects/consumables/health_potion/health_potion.tscn" id="18_o4sc6"]
 [ext_resource type="PackedScene" uid="uid://8ociunq2bdbk" path="res://source/objects/consumables/mana_potion/mana_potion.tscn" id="19_we56l"]
+[ext_resource type="PackedScene" uid="uid://dweh6tdbg1e1d" path="res://source/gameplay/weapons/Sword/sword_pickup.tscn" id="20_r0iud"]
+[ext_resource type="PackedScene" uid="uid://ctsuvqtm6hn46" path="res://source/gameplay/weapons/Dagger/dagger_pickup.tscn" id="21_eejgc"]
+[ext_resource type="PackedScene" uid="uid://ckcqrguau0pim" path="res://source/gameplay/weapons/FireStaff/firestaff_pickup.tscn" id="22_1lokg"]
+[ext_resource type="Shader" uid="uid://bg7leqb156v83" path="res://source/shaders/water.gdshader" id="24_wulmx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8rgqm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,8 +43,32 @@ ssao_intensity = 1.72
 glow_intensity = 2.14
 glow_bloom = 0.11
 fog_enabled = true
-fog_sun_scatter = 0.1
-fog_sky_affect = 0.5
+fog_light_color = Color(0.43652025, 0.42957208, 0.4236155, 1)
+fog_density = 0.019
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lokg"]
+albedo_color = Color(0.101960786, 0.2627451, 0.4392157, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_wulmx"]
+material = SubResource("StandardMaterial3D_1lokg")
+size = Vector2(500, 500)
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0n3h"]
+render_priority = 0
+shader = ExtResource("24_wulmx")
+shader_parameter/wave_amplitude = 0.03
+shader_parameter/wave_frequency = 6.0
+shader_parameter/wave_speed = 1.5
+shader_parameter/seamless = false
+shader_parameter/_speed = 0.1
+shader_parameter/_scale = 150.0
+shader_parameter/color_deep = Color(0.059364572, 0.27335936, 0.59255147, 0.8509804)
+shader_parameter/color_shallow = Color(0.60315263, 0.9089422, 0.9795963, 0.6)
+shader_parameter/color_threshold = 0.5810000275975
+shader_parameter/outline_enabled = true
+shader_parameter/outline_color = Color(0, 0.13333334, 0.45490196, 1)
+shader_parameter/outline_thickness = 0.0010000000475
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fhbj8"]
 material = ExtResource("3_d837r")
@@ -161,12 +190,27 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 light_energy = 0.5
 shadow_enabled = true
 
+[node name="Sea" type="MeshInstance3D" parent="." unique_id=1044888233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("QuadMesh_wulmx")
+surface_material_override/0 = SubResource("ShaderMaterial_g0n3h")
+
 [node name="Trees" type="GridMap" parent="." unique_id=869114184]
 mesh_library = ExtResource("1_fhbj8")
 cell_size = Vector3(1, 2, 1)
 cell_center_y = false
 data = {
 "cells": PackedInt32Array(18, 65516, 0, 10, 65517, 1441792, 3, 65521, 655360, 0, 65515, 0, 9, 65513, 0, 21, 65513, 0, 14, 65519, 0, 22, 65522, 0, 22, 65527, 0)
+}
+script = ExtResource("2_d837r")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Foliage" type="GridMap" parent="." unique_id=1589983534]
+mesh_library = ExtResource("4_1lokg")
+cell_size = Vector3(0.5, 2, 0.5)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(10, 65517, 1441792, 9, 65513, 0, 24, 65519, 655360, 13, 65510, 1048576, 13, 65502, 0, 23, 65496, 1441792, 17, 65504, 655360, 36, 65504, 1048576, 29, 65511, 0, 29, 65512, 0, 36, 65511, 1441792, 38, 65503, 655360, 37, 65527, 0, 34, 65520, 1441792, 41, 65519, 655360, 42, 65505, 1048576, 47, 65496, 0, 27, 65491, 1441792, 13, 65493, 655360, 8, 65493, 1048576, 14, 65501, 0, 7, 65512, 1441792, 65533, 65506, 655360, 17, 65516, 655360, 19, 65523, 1048576, 13, 65523, 0, 29, 65523, 1441792)
 }
 script = ExtResource("2_d837r")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
@@ -234,6 +278,12 @@ bus = &"SFX"
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, 0)
 use_collision = true
 size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_7wp20")
+
+[node name="Floor5" type="CSGBox3D" parent="Buildings" unique_id=2028275302]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.98061144, -5.9604645e-08)
+use_collision = true
+size = Vector3(52, 1, 52)
 material = SubResource("StandardMaterial3D_7wp20")
 
 [node name="Wall12" type="CSGBox3D" parent="Buildings" unique_id=448397057]
@@ -332,7 +382,7 @@ draw_pass_1 = SubResource("QuadMesh_u8wnc")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5, 0, 6.5)
 
 [node name="Ladder" parent="." unique_id=446508401 instance=ExtResource("14_ajfqw")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 2.2999992, 0, 10.5)
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2.2999992, 0, 10.5)
 
 [node name="Cube_1kg" parent="." unique_id=946136047 instance=ExtResource("15_pb4ga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.079675, 0.5, -5.280591)
@@ -354,3 +404,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.857595, 1, -5.486684)
 
 [node name="ManaPotion2" parent="." unique_id=150188953 instance=ExtResource("19_we56l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.140778, 1, -5.5059524)
+
+[node name="RigidBody3D" parent="." unique_id=413719221 instance=ExtResource("20_r0iud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2072434, 0.17811346, -6.402549)
+
+[node name="RigidBody3D2" parent="." unique_id=448676314 instance=ExtResource("21_eejgc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.293086, 0.044603884, -6.32096)
+
+[node name="RigidBody3D3" parent="." unique_id=963681162 instance=ExtResource("22_1lokg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.778253, 0.09581879, -6.967729)

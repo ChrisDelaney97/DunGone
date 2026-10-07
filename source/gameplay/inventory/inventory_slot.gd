@@ -6,6 +6,7 @@ class_name InventorySlot
 var inventory_slot_id: int = -1
 var slot_filled: bool = false
 var slot_data: ItemData
+var equip_slot: bool = false
 
 signal OnItemSwapped (from_slot_id: int, to_slot_id: int)
 signal OnItemDoubleClicked (slot_id: int)
